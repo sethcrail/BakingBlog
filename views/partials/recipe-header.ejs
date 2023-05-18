@@ -1,0 +1,20 @@
+
+    <hr class="recipe-header-border">
+
+    <div class="recipe-header">
+
+        <div class="recipe-header-text">
+            <h1 class="recipe-header-title"><%= recipe.foodName %></h1>
+            <h3 class="recipe-header-subtitle"><%= recipe.creationDate %></h3>
+        </div>
+
+        <hr class="recipe-header-border middle-border">
+
+        <div class="recipe-img-container">
+            <img class="recipe-img" src="/assets/recipe-imgs/<%= recipe.photoTitle %>.jpeg" alt="<%= recipe.foodName %>">
+            <div class="recipe-img-overlay"></div>
+        </div>
+        
+    </div>
+
+    <hr class="recipe-header-border">

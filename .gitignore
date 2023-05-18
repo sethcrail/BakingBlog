@@ -1,0 +1,7 @@
+#IGNORE FILES
+.DS_Store
+node_modules/
+logs/
+private/
+admin.txt
+password.txt

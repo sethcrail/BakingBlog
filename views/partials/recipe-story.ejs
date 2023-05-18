@@ -1,0 +1,32 @@
+<div class="recipe-story">
+    <div class="recipe-buttons-story">
+        <button class="story-btn-story" onClick="storyMode()">Story</button>
+        <button class="list-btn-story" onClick="listMode()">Recipe</button>
+    </div>
+
+    <div class="story-text">
+        <h3 class="story-title"><%= recipe.title %></h3>
+        <p class="story-subtitle"><%= recipe.creationDate %></p>
+        <p class="story-body"><%= recipe.body[0] %></p>
+
+        <% if (recipe.quote) { %>
+            <hr class="story-quote-seperator">
+            <p class="story-quote"><em>"<%= recipe.quote %>"</em></p>
+            <p class="story-citation">— <%= recipe.citation %></p>
+            <hr class="story-quote-seperator">
+        <% } %>
+        
+        <% for (i = 1; i < recipe.body.length; i++) { %>
+            <p class="story-body"><%= recipe.body[i] %></p>
+        <% } %>
+        
+        <div class="next-recipe-container-story">
+            <button class="next-recipe-btn-story">
+                Eclairs - Pandemic Be Damned
+                <svg class="right-arrow-svg" xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 96 960 960" width="48"><path d="m561 814-43-42 168-168H160v-60h526L517 375l43-42 241 241-240 240Z"/></svg>
+            </button>
+        </div>
+    </div>
+
+
+</div>

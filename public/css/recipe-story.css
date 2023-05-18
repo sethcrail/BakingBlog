@@ -1,0 +1,141 @@
+.recipe-story {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.recipe-buttons-story {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem;
+}
+
+.story-btn-story {
+    cursor: pointer;
+    font-family:'Dancing Script', cursive;
+    color: #442727;
+    font-size: 32px;
+    border: 2px solid #442727;
+    border-radius: 10px 0 0 10px;
+    background-color: #B6EAFA;
+    padding: 0 2rem;
+    transition: 0.5s;
+    box-sizing: border-box;
+    box-shadow: inset 0px 0px 3px#442727;
+}
+
+.story-btn-story:hover {
+    background-color: white;
+    transition: 0.5s;
+}
+
+.list-btn-story {
+    cursor: pointer;
+    font-family:'Dancing Script', cursive;
+    color: #442727;
+    font-size: 32px;
+    font-weight: 400;
+    border: 2px solid #FBFFE2;
+    border-left: 2px solid transparent;
+    border-radius: 0 10px 10px 0;
+    text-decoration: none;
+    background-color: #FBFFE2;
+    padding: 0 2rem;
+    transition: 0.5s;
+    box-sizing: border-box;
+    box-shadow: 0px 0px 3px#442727;
+}
+
+.list-btn-story:hover {
+    background-color: white;
+    transition: 0.5s;
+}
+
+.story-text {
+    font-family: "Crimson Text", serif;
+    color: #442727;
+    text-align: left;
+    margin: 0 5.5rem;
+    max-width: 1080px;
+}
+.story-title {
+    font-size: 28px;
+    font-family: "Crimson Text", serif;
+    color: #442727;
+    text-align: left;
+    margin: 0;
+}
+
+.story-subtitle {
+    font-size: 20px;
+    font-family: "Crimson Text", serif;
+    font-style: italic;
+    color: #442727;
+    text-align: left;
+    margin: 0;
+}
+
+.story-body {
+    margin: 1rem 0 2rem 0;
+}
+
+.story-quote {
+    font-size: 20px;
+    color: #442727;
+    text-align: center;
+    margin: 0.5rem;
+}
+
+.story-citation {
+    text-align: center;
+    color: #442727;
+    margin: 0.5rem;
+}
+
+.story-quote-seperator {
+    border-top: 1px solid #FBFFE2;
+    border-bottom: 1px solid #FBFFE2;
+    max-width: 1080px;
+    width: 75%;
+}
+
+.next-recipe-container-story {
+    max-width: 1080px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    margin: 0 2rem 0 0;
+}
+
+.next-recipe-btn-story {
+    cursor: pointer;
+    font-size: 20px;
+    font-family: "Crimson Text", serif;
+    font-style: italic;
+    background-color: #FBFFE2;
+    color: #442727;
+    border: none;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-around;
+    align-self: end;
+    align-items: center;
+    padding: 0 1rem 0 1.5rem;
+    transition: 0.5s;
+    margin: 0 0 2rem 0;
+}
+
+.next-recipe-btn-story:hover {
+    transition: 0.5s;
+    background-color: white;
+}
+
+.right-arrow-svg {
+    height: 30px;
+    padding: 0;
+    fill: #442727;
+}

@@ -1,0 +1,123 @@
+.recipe-header-border {
+    border: none;
+    margin: auto;
+    border-top: 17.5px solid #FBFFE2;
+    width: 100%;
+    max-width: 1080px;
+    z-index: 2;
+}
+
+.recipe-header {
+    background-color: #B6EAFA;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 400px;
+    max-width: 1078px;
+    margin: auto;
+}
+
+.recipe-header-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 4rem;
+    z-index: 2;
+    font-family: 'Dancing Script', cursive;
+    filter: drop-shadow(0px 0px 5px rgba(0,0,0,0.25));
+    color: #442727;
+    text-align: center;
+}
+
+.recipe-header-title {
+    font-size: 64px;
+    font-weight: bold;
+    margin: 0 4.5rem 1rem 4.5rem;
+}
+
+.recipe-header-subtitle {
+    font-size: 32px;
+    font-weight: 400;
+    margin: 0 4.5rem;
+}
+
+.recipe-img-container {
+    min-width: 575px;
+    height: 400px;
+    position: relative;
+}
+
+.recipe-img-container::after {
+    content: "";
+    position: absolute;
+    border-right: 146px solid #B6EAFA;
+    border-top: 400px solid transparent;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+}
+
+.recipe-img-container::before {
+    content: "";
+    position: absolute;
+    border-left: 146px solid #B6EAFA;
+    border-bottom: 400px solid transparent;
+    left: 0;
+    top: 0;
+    z-index: 1;
+}
+
+.recipe-img-overlay {
+    width: 393px;
+    height: 400px; 
+    border-left: 20px solid #FBFFE2;
+    border-right: 20px solid #FBFFE2;
+    transform: skewX(-20deg);
+    position: absolute;
+    display: block;
+    left: 71px;
+    z-index: 2;
+}
+.recipe-img {
+    height: inherit;
+    width: inherit;
+    min-width: 575px;
+    object-fit: cover;
+    position: absolute;
+    z-index: 0;
+}   
+
+.middle-border {
+    visibility: hidden;
+    position: absolute;
+}
+
+
+
+@media (max-width: 1080px) {
+
+    .recipe-header {
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 500px;
+        height: auto;
+        overflow: visible;
+    }
+
+    .middle-border {
+        visibility: visible;
+        position: relative;
+        width: 100vw;
+    }
+
+    .recipe-header-text {
+        margin: 2rem 0;
+    }
+}
+
+@media (min-width: 1080px) {
+    .recipe-header-title {
+        margin: 0 0 1rem 0;
+    }
+}

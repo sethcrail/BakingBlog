@@ -1,0 +1,41 @@
+<!-- <div class="recipe-list-bgd"> -->
+    <div class="recipe-list">
+        <div class="recipe-buttons-list">
+            <button class="story-btn-list" onClick="storyMode()">Story</button>
+            <button class="list-btn-list" onClick="listMode()">Recipe</button>
+        </div>
+    
+        <div class ="list-text">
+            <div class="ingredient-list-container">
+                <h3 class="ingredient-list-title">Ingredients</h3>
+
+                <ul class="ingredient-list">
+                    <% recipe.ingredientsListImperial.forEach(ingredient => { %>
+                        <li class="ingredient"><%= ingredient %></li>
+                    <% }); %>
+                </ul>
+
+                <button class="measurement-toggle">Convert to Metric</button>
+            </div>
+        
+            <div class="direction-list-container">
+                <ol class="direction-list">
+                    <% recipe.directionsList.forEach(direction => { %>
+                    <li class="direction"><%= direction %></li>
+                   <% }); %>
+                </ol>
+            </div>
+        </div>
+        
+    
+        <div class="next-recipe-container-list">
+            <button class="next-recipe-btn-list">
+                Eclairs - Pandemic Be Damned
+                <svg class="right-arrow-svg" xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 96 960 960" width="48"><path d="m561 814-43-42 168-168H160v-60h526L517 375l43-42 241 241-240 240Z"/></svg>
+            </button>
+        </div>
+    
+    </div>
+
+<!-- </div> -->
+

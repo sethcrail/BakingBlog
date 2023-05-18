@@ -1,0 +1,91 @@
+.side-nav {
+    background-color: #442727;
+    height: 100vh;
+    width: 0;
+    position: fixed;
+    z-index: 6;
+    left: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: 0.5s;
+}
+
+.close-nav-btn {
+    stroke: #FBFFE2;
+    fill: transparent;
+    align-self: last baseline;
+    background-color: inherit;
+    border: none;
+    cursor: pointer;
+    padding: 2px 4px 4px 4px;
+    margin: 1rem 1rem 0 0;
+    transition: 0.2s;
+}
+
+.close-nav-btn:hover {
+    stroke: #FFAFAF;
+    transition: 0.2s;
+}
+
+.nav-links {
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+
+.nav-link-bgd {
+    width: 0;
+    background-color: #271616;
+    transition: 0.3s;
+    margin: 2vh 0;
+}
+
+.nav-link-bgd:hover {
+    width: 100%;
+    transition: 0.5s;
+}
+
+.nav-link {
+    font-family: 'Dancing Script', cursive;
+    font-size: 48px;
+    text-decoration: none;
+    padding: 0 1rem;
+    color: #FBFFE2; 
+    transition: 1s;
+}
+
+.nav-bottom {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
+    width: inherit;
+    height: 10vh;
+    align-self: flex-end;
+    margin-bottom: 2rem;
+}
+
+.nav-divider {
+    width: 75%;
+}
+
+.nav-favicons {
+    display: flex;
+    flex-direction: row;
+    width: inherit;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.nav-favicon {
+    width: 40px;
+    fill: #FBFFE2;
+    transition: 0.5s;
+}
+
+.nav-favicon:hover {
+    fill: #FFAFAF;
+    transition: 0.5s;
+}

@@ -1,0 +1,111 @@
+.compose-form-bgd {
+    padding: 6.5rem;
+    max-width: 720px;
+    margin: auto;
+}
+
+.compose-form {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    background-color: #FBFFE2;
+    padding: 2rem;
+    box-shadow: 0px 0px 10px #442727;
+    border-radius: 10px;
+}
+
+.compose-form-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 64px;
+    color: #442727;
+    padding: 0;
+    margin: 0 auto 2rem auto;
+}
+
+.drop-down-container {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    width: 50%;
+}
+
+.form-seperator {
+    border: 1px solid #442727;
+    width: 90%;
+    align-self: left;
+    margin: 1rem auto;
+}
+
+.short-input-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.short-input-container {
+    display: flex;
+    flex-direction: column;
+    align-items: right;
+    width: 50%;
+}
+
+.input {
+    border: 1px solid #442727;
+    box-shadow: inset 0px 0px 1px #442727;
+    margin: 0 0 1rem 0;
+    font-family: Crimson Text, serif;
+    color: #442727;
+}
+
+.input[type='text'] {
+    font-family: Crimson Text, serif;
+    color: #442727;
+}
+
+.form-item{
+
+}
+
+.short-input-label {
+    width: 90%;
+}
+
+.short-input {
+    height: 2rem;
+    width: 90%;
+    box-sizing: border-box;
+}
+
+.long-input {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.form-label {
+    font-family: Crimson Text, Serif;
+    font-style: italic;
+    font-size: 16px;
+    color: #442727;
+}
+
+.compose-save-btn {
+    cursor: pointer;
+    color: #FBFFE2;
+    font-family: 'Dancing Script', cursive;
+    font-size: 24px;
+    font-weight: bold;
+    background-color: #442727;
+    border: 1px solid transparent;
+    width: 6rem;
+    border-radius: 10px;
+    padding: 4px 8px;
+    transition: 0.5s;
+    align-self: center;
+}
+
+.compose-save-btn:hover {
+    color: #442727;
+    background-color: #FBFFE2;
+    border: 1px solid #442727;
+    transition: 0.5s;
+}

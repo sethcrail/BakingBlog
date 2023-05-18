@@ -1,0 +1,70 @@
+.hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: -1;
+}
+
+.donut {
+    height: 30rem;
+    width: 30rem;
+    filter: drop-shadow(10px 10px 30px rgba(0,0,0,0.6));
+    margin-bottom: 1rem;
+}
+
+.hero-text {
+    font-family: 'Dancing Script', cursive;
+    text-align: center;
+    color: #442727;
+    filter: drop-shadow(0px 0px 5px rgba(0,0,0,0.25));
+}
+
+.hero-title {
+    font-size: 64px;
+    font-weight: bold;
+    margin: 10px 4.5rem;
+}
+
+.hero-subtitle {
+    font-size: 26px;
+    font-weight: 400;
+    margin: 0 4.5em;
+}
+
+.scroll-directive {
+    position: absolute;
+    bottom: 5vh;
+}
+
+.empty {
+    height: 100vh;
+}
+
+@media (max-width: 1080px) {
+    .donut {
+        width: 25rem;
+        height: 25rem;
+    }
+}
+
+@media (max-width: 720px) {
+    .donut {
+        width: 18rem;
+        height: 18rem;
+    }
+
+    .hero-title {
+        font-size: 48px;
+    }
+
+    .hero-subtitle {
+        margin-bottom: 2rem;
+        font-size: 20px;
+    }
+}
