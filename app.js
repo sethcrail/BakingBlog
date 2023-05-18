@@ -15,8 +15,6 @@ const username = fs.readFileSync('private/admin.txt', 'utf8');
 const password = fs.readFileSync('private/password.txt', 'utf8');
 const mongooseAddress = 'mongodb+srv://' + username + ":" + password + '@cluster0.mgwew9b.mongodb.net/bakingBlogDB';
 
-console.log(mongooseAddress);
-
 main().catch(err => console.log(err));
 
 async function main() {
@@ -71,7 +69,19 @@ app.get("/compose", (req, res)=>{
             console.log(err);
         }
     })();
+});
 
+app.get("/recipes", (req, res)=> {
+    (async ()=> {
+        try {
+            const recipeList = await Recipe.find();
+            res.render("recipes", {
+                recipeList: recipeList
+            });
+        } catch (err) {
+            console.log(err);
+        }
+    })();
 });
 
 app.get("/:postId", (req, res)=> {

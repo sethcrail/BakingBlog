@@ -47,6 +47,15 @@
     position: relative;
 }
 
+.recipe-img {
+    height: inherit;
+    width: inherit;
+    min-width: 575px;
+    object-fit: cover;
+    position: absolute;
+    z-index: 0;
+}   
+
 .recipe-img-container::after {
     content: "";
     position: absolute;
@@ -78,14 +87,7 @@
     left: 71px;
     z-index: 2;
 }
-.recipe-img {
-    height: inherit;
-    width: inherit;
-    min-width: 575px;
-    object-fit: cover;
-    position: absolute;
-    z-index: 0;
-}   
+
 
 .middle-border {
     visibility: hidden;
