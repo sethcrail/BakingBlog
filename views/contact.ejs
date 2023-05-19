@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+
+    <!-- Styles and Scripts -->
+    <link rel="stylesheet" href="/css/styles.css" type="text/css" >
+    <!-- <link rel="stylesheet" href="/css/recipe-header.css" type="text/css" > -->
+    <!-- <link rel="stylesheet" href="/css/recipe-story.css" type="text/css" > -->
+    <!-- <link rel="stylesheet" href="/css/recipe-list.css" type="text/css" > -->
+    <link rel="stylesheet" href="/css/footer.css" type="text/css" >
+    <link rel="stylesheet" href="/css/side-nav.css" type="text/css" >
+    <!-- <link rel="stylesheet" href="/css/hero.css" type="text/css" > -->
+    <link rel="stylesheet" href="/css/menu-button.css" type="text/css" >
+    <link rel="stylesheet" href="/css/contact.css" type="text/css" >
+    <!-- <script src="/js/index.js"></script> -->
+    <script src="/js/menu-button.js"></script>
+    <script src="/js/side-nav.js"></script>
+    <script src="/js/contact.js"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <%- include("partials/side-nav.ejs") %>
+    <%- include("partials/menu-button.ejs") %>
+
+    <section class="contact-form-bgd">
+        <h1 class="contact-page-title">Contact</h1>
+
+            <form class = "contact-form"action="/" method="post">
+                <h3 class="contact-form-title">Have a question?</h3>
+                <div class="short-input-row">
+                    <div class="short-input-container">
+                        <label class="form-label" for="firstName">First Name:</label>
+                        <input id="first-name" class="input short-input" type="text" name="firstName">
+                    </div>
+                    <div class="short-input-container">
+                        <label class="form-label" for="lastName">Last Name:</label>
+                        <input id="last-name" class="input short-input" type="text" name="lastName">
+                    </div>
+                </div>
+                <label class="form-label" for="email">Email:</label>
+                <input id="email" class="input" type="text" name="email">
+                <label class="form-label" for="message">Message:</label>
+                <textarea id="message" class="input" name="message" cols="30" rows="10"></textarea>
+                <button class="contact-send-btn" type="submit">Send</button>
+            </form>
+    </section>
+
+    <%- include("partials/footer.ejs") %>
+
+</body>
+
+
+</html>

@@ -1,94 +1,39 @@
-.compose-form-bgd {
+.contact-form-bgd {
     padding: 2rem 6.5rem;
-    max-width: 720px;
-    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
 }
 
-.compose-page-title {
+.contact-page-title {
     font-family: 'Dancing Script', cursive;
     font-size: 64px;
-    text-align: center;
     color: #442727;
-    padding: 0;
-    margin: 0 auto 2rem auto;
+    margin: 0 0 2rem 0;
 }
 
-.compose-form {
+.contact-form {
     display: flex;
     flex-direction: column;
+    justify-content: start;
     align-items: left;
     background-color: #FBFFE2;
-    padding: 2rem;
+    padding: 3rem 4rem;
     box-shadow: 0px 0px 10px #442727;
     border-radius: 10px;
+    width: 100%;
+    max-width: 360px;
 }
 
-.compose-form-title {
+.contact-form-title {
     font-family: 'Dancing Script', cursive;
-    font-size: 40px;
+    font-size: 44px;
     text-align: center;
     color: #442727;
     padding: 0;
-    margin: 0 auto 2rem auto;
-}
-
-.drop-down-container {
-    display: flex;
-    flex-direction: column;
-    align-items: left;
-    width: 50%;
-}
-
-.form-seperator {
-    border: 1px solid #442727;
-    width: 90%;
-    align-self: left;
-    margin: 1rem auto;
-}
-
-.short-input-row {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-
-.short-input-container {
-    display: flex;
-    flex-direction: column;
-    align-items: right;
-    width: 50%;
-}
-
-.input {
-    border: 1px solid #442727;
-    box-shadow: inset 0px 0px 1px #442727;
-    margin: 0 0 1rem 0;
-    font-family: Crimson Text, serif;
-    color: #442727;
-}
-
-.input[type='text'] {
-    font-family: Crimson Text, serif;
-    color: #442727;
-}
-
-.form-item{
-
-}
-
-.short-input-label {
-    width: 90%;
-}
-
-.short-input {
-    height: 2rem;
-    width: 90%;
-    box-sizing: border-box;
-}
-
-.long-input {
-    width: 100%;
-    box-sizing: border-box;
+    margin: 0 0 2rem 0;
+    align-self: center;
 }
 
 .form-label {
@@ -98,7 +43,46 @@
     color: #442727;
 }
 
-.compose-save-btn {
+.input {
+    border: 1px solid #442727;
+    box-shadow: inset 0px 0px 1px #442727;
+    margin: 0 0 2rem 0;
+    font-family: Crimson Text, serif;
+    color: #442727;
+}
+
+.input[type='text'] {
+    font-family: Crimson Text, serif;
+    color: #442727;
+    height: 2.5rem;
+    box-sizing: border-box;
+}
+
+.short-input-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.short-input-container {
+    display: flex;
+    flex-direction: column;
+    align-items: right;
+    width: 45%;
+    min-width: 120px;
+}
+
+#email {
+    width: 100%;
+    align-self: left;
+}
+
+#message {
+    width: 100%;
+}
+
+.contact-send-btn {
     cursor: pointer;
     color: #FBFFE2;
     font-family: 'Dancing Script', cursive;
@@ -113,7 +97,7 @@
     align-self: center;
 }
 
-.compose-save-btn:hover {
+.contact-send-btn:hover {
     color: #442727;
     background-color: #FBFFE2;
     border: 1px solid #442727;

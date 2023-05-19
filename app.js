@@ -84,6 +84,10 @@ app.get("/recipes", (req, res)=> {
     })();
 });
 
+app.get("/contact", (req, res) => {
+    res.render("contact");
+});
+
 app.get("/:postId", (req, res)=> {
     (async ()=> {
         try {
