@@ -1,11 +1,10 @@
 .rl-container {
-    padding: 6.5rem;
+    padding: 4rem 0 0 0;
     margin: auto;
     display: flex;
     flex-direction: column;
     align-items: left;
 }
-
 
 .rl-title {
     font-family: 'Dancing Script', cursive;
@@ -15,31 +14,132 @@
     margin: 0 auto 2rem auto;
 }
 
+/* RECIPE CONTAINERS */
+
 .rl-recipe-container {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    height: 10rem;
+    height: 200px;
+    width: 100%;
+    margin: auto;
+    border-top: 3px solid #442727;
 }
 
-.rl-recipe-title {
+.yellow {
+    background-color: #FBFFE2;
+}
+
+.blue {
+    background-color: #B6EAFA;
+}
+
+.pink {
+    background-color: #FFAFAF;
+}
+
+/* TITLES */
+.rl-recipe-title-left {
     font-family: 'Dancing Script', cursive;
     font-size: 48px;
     color: #442727;
     padding: 0;
+    margin-left: 6rem;
 }
+
+.rl-recipe-title-right {
+    font-family: 'Dancing Script', cursive;
+    font-size: 48px;
+    color: #442727;
+    padding: 0;
+    margin-right: 6rem;
+}
+
+/* IMG CONTAINERS */
 
 .rl-recipe-img-container {
-    width: 1080px;
+    width: 100%;
     height: inherit;
+    position: relative;
+    z-index: 1;
+    right: 0;
 }
 
-.rl-img {
+/* YELLOW */
+.rl-recipe-img-container.yellow::before {
+    content: "";
+    position: absolute;
+    border-left: 75px solid #FBFFE2;
+    border-bottom: 200px solid transparent;
+    left: 0;
+    top: 0;
+    z-index: 1;
+}
+
+.rl-recipe-img-container.yellow::after {
+    content: "";
+    position: absolute;
+    border-right: 75px solid #FBFFE2;
+    border-top: 200px solid transparent;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+}
+
+/* BLUE */
+.rl-recipe-img-container.blue::before {
+    content: "";
+    position: absolute;
+    border-left: 75px solid #B6EAFA;
+    border-bottom: 200px solid transparent;
+    left: 0;
+    top: 0;
+    z-index: 1;
+}
+
+.rl-recipe-img-container.blue::after {
+    content: "";
+    position: absolute;
+    border-right: 75px solid #B6EAFA;
+    border-top: 200px solid transparent;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+}
+
+/* PINK */
+.rl-recipe-img-container.pink::before {
+    content: "";
+    position: absolute;
+    border-left: 75px solid #FFAFAF;
+    border-bottom: 200px solid transparent;
+    left: 0;
+    top: 0;
+    z-index: 1;
+}
+
+.rl-recipe-img-container.pink::after {
+    content: "";
+    position: absolute;
+    border-right: 75px solid #FFAFAF;
+    border-top: 200px solid transparent;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+}
+
+/* IMAGES */
+.rl-img-right {
     height: inherit;
     width: inherit;
-    /* min-width: 575px; */
     object-fit: cover;
-    /* position: absolute;
-    z-index: 0; */
+    z-index: 0;
+}
+
+.rl-img-left {
+    height: inherit;
+    width: inherit;
+    object-fit: cover;
+    z-index: 0;
 }
