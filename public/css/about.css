@@ -1,0 +1,97 @@
+.about-bgd {
+    padding: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.about-container {
+    display: flex;
+    flex-direction: row;
+    background-color: #FBFFE2;
+    border-top: 2px solid #442727;
+    border-bottom: 2px solid #442727;
+}
+
+.about-page-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 64px;
+    color: #442727;
+    padding: 0;
+    margin: 0 auto 2rem auto;
+}
+
+.about-body {
+    padding: 2rem 2rem 2rem 6.5rem;
+    font-family: 'Crimson Text', serif;
+    font-size: 18px;
+    color: #442727;
+    align-self: center;
+}
+
+.about-img-container {
+    position: relative;
+    width: 400px;
+    height: 533.33px;
+}
+
+.about-img {
+    height: inherit;
+    width: inherit;
+    object-fit: cover;
+    min-height: 400px;
+    max-height: 750px;
+}
+
+.about-img-container::before {
+    content: "";
+    position: absolute;
+    border-left: 75px solid #FBFFE2;
+    border-bottom: 533.33px solid transparent;
+    left: 0;
+    top: 0;
+    z-index: 1;
+}
+
+.about-img-container::after {
+    content: "";
+    position: absolute;
+    border-right: 75px solid #FBFFE2;
+    border-top: 533.33px solid transparent;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+}
+
+@media (max-width: 1275px ) {
+    .about-body {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 1102px ) {
+    .about-container {
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+
+    .about-body {
+        padding: 2rem 6.5rem 2rem 6.5rem;
+    }
+
+    .about-img-container {
+        position: relative;
+        height: 100%;
+        padding: 0 6.5rem;
+    }
+
+    .about-img-container::before {
+        left: 6.5rem;
+        border-bottom: 100% solid transparent;
+    }
+    .about-img-container::after {
+        right: 6.5rem;
+        border-top: 100% solid transparent;
+    }
+}

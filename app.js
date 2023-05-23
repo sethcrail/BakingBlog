@@ -40,7 +40,7 @@ const Recipe = mongoose.model('Recipe', recipeSchema);
 
 
 
-//Requests
+//GET REQUESTS
 app.get("/", (req, res)=>{
     (async ()=> {
         try {
@@ -84,6 +84,10 @@ app.get("/recipes", (req, res)=> {
     })();
 });
 
+app.get("/about", (req, res) => {
+    res.render("about");
+});
+
 app.get("/contact", (req, res) => {
     res.render("contact");
 });
@@ -101,6 +105,9 @@ app.get("/:postId", (req, res)=> {
 
 });
 
+
+
+//POST REQUESTS
 app.post("/compose", (req, res)=> {
 
     if (req.body.editRecipe == "New Recipe") {
@@ -158,6 +165,8 @@ app.post("/compose", (req, res)=> {
         })();
     };
 });
+
+
 
 //Server Start
 app.listen(3000, ()=> {
