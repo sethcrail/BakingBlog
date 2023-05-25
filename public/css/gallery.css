@@ -1,0 +1,13 @@
+.gallery-bgd {
+    padding: 6.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+
+
+.gallery-img {
+
+}

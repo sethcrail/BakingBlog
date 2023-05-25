@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery</title>
+
+    <!-- Styles and Scripts -->
+    <link rel="stylesheet" href="/css/styles.css" type="text/css" >
+    <link rel="stylesheet" href="/css/footer.css" type="text/css" >
+    <link rel="stylesheet" href="/css/side-nav.css" type="text/css" >
+    <link rel="stylesheet" href="/css/menu-button.css" type="text/css" >
+    <link rel="stylesheet" href="/css/gallery.css" type="text/css" >
+    <script src="/js/menu-button.js"></script>
+    <script src="/js/side-nav.js"></script>
+    <script src="/js/gallery.js"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <%- include("partials/side-nav.ejs") %>
+    <%- include("partials/menu-button.ejs") %>
+
+    <section class="gallery-bgd">
+        <div class="gallery-section-1">
+            <img class="gallery-img" src="" alt="">
+            <div class="gallery-cube">
+                <div class="gallery-row">
+                    <img class="gallery-img" src="" alt="">
+                    <img class="gallery-img" src="" alt="">
+                </div>
+                <img class="gallery-img" src="" alt="">
+            </div>
+        </div>
+        <div class="gallery-section-2">
+            <div class="gallery-cube">
+                <img class="gallery-img" src="" alt="">
+                <div class="gallery-row">
+                    <img class="gallery-img" src="" alt="">
+                    <img class="gallery-img" src="" alt="">
+                </div>
+            </div>
+            <img class="gallery-img" src="" alt="">
+        </div>
+    </section>
+
+    <%- include("partials/footer.ejs") %>
+
+</body>

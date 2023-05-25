@@ -88,6 +88,19 @@ app.get("/about", (req, res) => {
     res.render("about");
 });
 
+app.get("/gallery", (req, res) => {
+    fs.readdir("public/assets/recipe-imgs/", (err, photoList) => {
+        if (err) {
+            console.log(err);
+        } else {
+            console.log(photoList);
+        }
+    });
+    const numberOfSections = 1;
+    
+    res.render("gallery");
+});
+
 app.get("/contact", (req, res) => {
     res.render("contact");
 });
