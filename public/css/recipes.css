@@ -27,6 +27,10 @@
     border-top: 3px solid #442727;
 }
 
+.rl-recipe-container:hover {
+    
+}
+
 .yellow {
     background-color: #FBFFE2;
 }
