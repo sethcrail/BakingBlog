@@ -84,6 +84,20 @@ app.get("/recipes", (req, res)=> {
     })();
 });
 
+app.get("/recipes/:postId", (req, res)=> {
+    (async ()=> {
+        try {
+            const foundRecipe = await Recipe.findOne({photoTitle: req.params.postId});
+            res.render("recipe", {
+                recipe: foundRecipe
+            });
+        } catch (err) {
+            console.log(err);
+        }
+    })();
+});
+
+
 app.get("/about", (req, res) => {
     res.render("about");
 });
@@ -114,7 +128,6 @@ app.get("/:postId", (req, res)=> {
             console.log(err);
         }
     })();
-    
 
 });
 

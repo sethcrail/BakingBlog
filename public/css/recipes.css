@@ -21,19 +21,26 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    text-decoration: none;
     height: 200px;
     width: 100%;
     margin: auto;
     border-top: 3px solid #442727;
+    transition: 0.5s;
 }
 
 .rl-recipe-container:hover {
+    cursor: pointer;
+    opacity: 0.75;
+    filter: brightness(1.3);
+    transition: 0.5s;
     
 }
 
 .yellow {
     background-color: #FBFFE2;
 }
+
 
 .blue {
     background-color: #B6EAFA;
