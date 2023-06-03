@@ -31,9 +31,9 @@
         <h1 class="gallery-page-title">Gallery</h1>
         <div class="gallery-container">
             <% photos.forEach(photo => { %>
-                <div class="gallery-img-container">
+                <button class="gallery-img-container">
                     <img class="gallery-img" src="/assets/recipe-imgs/<%= photo %>" alt="<%= photo %>">
-                </div>
+                </button>
             <% }); %>
         </div>
     </section>
