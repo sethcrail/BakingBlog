@@ -103,16 +103,33 @@ app.get("/about", (req, res) => {
 });
 
 app.get("/gallery", (req, res) => {
-    fs.readdir("public/assets/recipe-imgs/", (err, photoList) => {
-        if (err) {
+    (async ()=> {
+        try {
+            fs.readdir("public/assets/recipe-imgs/", (err, photoList) => {
+                if (err) {
+                    console.log(err);
+                } else {
+                    let numberOfSections = 1;
+                    const numberOfPhotoSets = Math.floor(photoList.length / 4);
+                    if (numberOfPhotoSets === 0) {
+
+                    } else {
+                        numberOfSections = numberOfPhotoSets;
+                    }
+                    console.log(photoList);
+                    console.log(numberOfSections);
+                    res.render("gallery", {
+                        photos: photoList,
+                        numberOfSections: numberOfSections
+                    });
+                }
+
+            });
+        } catch (err) {
             console.log(err);
-        } else {
-            console.log(photoList);
         }
-    });
-    const numberOfSections = 1;
+    })();
     
-    res.render("gallery");
 });
 
 app.get("/contact", (req, res) => {
