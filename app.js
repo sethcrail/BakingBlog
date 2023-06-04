@@ -97,11 +97,6 @@ app.get("/recipes/:postId", (req, res)=> {
     })();
 });
 
-
-app.get("/about", (req, res) => {
-    res.render("about");
-});
-
 app.get("/gallery", (req, res) => {
     (async ()=> {
         try {
@@ -132,10 +127,20 @@ app.get("/gallery", (req, res) => {
     
 });
 
+app.get("/play", (req, res) => {
+    res.render("play");
+});
+
+app.get("/about", (req, res) => {
+    res.render("about");
+});
+
 app.get("/contact", (req, res) => {
     res.render("contact");
 });
 
+
+//FOR COMPOSE PAGE
 app.get("/:postId", (req, res)=> {
     (async ()=> {
         try {
@@ -145,7 +150,6 @@ app.get("/:postId", (req, res)=> {
             console.log(err);
         }
     })();
-
 });
 
 
