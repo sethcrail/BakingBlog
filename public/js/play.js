@@ -12,11 +12,13 @@ let score = 0;
 let gameOver = false;
 
 let foodArray = [];
-const numberOfFood = 4;
+let numberOfFood = 1;
 let foodSpeedScale = 2;
 const foodSpeedMinimum = 2;
 const playerHeight = 50;
 const playerWidth = 100;
+let delayValue = 1000;
+let tickCounter = 0;
 
 ctx.font = "48px Crimson-Text serif";
 
@@ -64,6 +66,7 @@ class Food {
         this.dy = foodSpeedMinimum + Math.random() * foodSpeedScale;
         this.angle = Math.random() * 360;
         this.spin = Math.random() < 0.5 ? -1 : 1;
+        this.delay = Math.floor(Math.random() * delayValue);
         this.type = Math.floor(Math.random() * 3);
     }
 
@@ -79,6 +82,7 @@ class Food {
         ctx.fillRect(0 - this.size/2, 0 - this.size/2, this.size, this.size);
         ctx.restore();
     }
+
     update() {
         if (this.y >= canvas.height){
 
@@ -95,6 +99,7 @@ class Food {
             this.x = (this.size / 2) + Math.random() * (canvas.width - this.size);
             this.dy = foodSpeedMinimum + Math.random() * foodSpeedScale;
             this.type = Math.floor(Math.random() * 3);
+            this.delay = Math.floor(Math.random() * delayValue);
 
         } else {
             this.y += this.dy;
@@ -107,11 +112,15 @@ class Food {
 //Game Architecture
 
 function init() {
+    foodArray = [];
     for (let i = 0; i < numberOfFood; i++) {
         foodArray.push(new Food());
     }
+    foodArray[0].type = 0;
+    console.log(foodArray[0]);
     let score = 0;
     let gameOver = false;
+    let tickCounter = 0;
 }
 
 let player = new Player;
@@ -120,7 +129,11 @@ function animate() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     for (let i = 0; i < foodArray.length; i++) {
         foodArray[i].draw();
-        foodArray[i].update();
+        if (foodArray[i].delay > 0) {
+            foodArray[i].delay--;
+        } else {
+            foodArray[i].update();
+        }
     }
 
     player.draw();
@@ -130,6 +143,12 @@ function animate() {
     }
 
     drawScore();
+
+    if (tickCounter % 1000 == 0) {
+        levelUp();
+    }
+
+    tickCounter++;
     
     if (!gameOver) {
         requestAnimationFrame(animate);
@@ -137,6 +156,13 @@ function animate() {
         endGame();
     }
 
+}
+
+function levelUp() {
+    numberOfFood++;
+    foodSpeedScale = foodSpeedScale + 0.02;
+    delayValue = delayValue - 20;
+    foodArray.push(new Food());
 }
 
 function startGame() {
