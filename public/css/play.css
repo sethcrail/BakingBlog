@@ -15,6 +15,7 @@
 }
 
 #game-wrapper {
+    display: block;
     margin: none;
     padding: none;
     position: relative;
@@ -25,6 +26,7 @@
     height: 720px;
     width: 360px;
     background-color: #FFAFAF;
+    border: 3px solid #442727;
     margin: none;
     padding: none;
     z-index: 0;
@@ -32,9 +34,104 @@
 }
 
 #start-btn {
-    display: block;
+    position: absolute;
+    left: 50%;
+    top: 80%;
+    transform: translate(-50%, -50%);
+    background-color: #FBFFE2;
+    font-weight: bold;
+    font-family: "Crimson Text", serif;
+    font-size: 40px;
+    color: #442727;
+    border: 1px solid #FBFFE2;
+    border-radius: 10px;
+    padding: 2px 1rem;
+    white-space: nowrap;
+    transition: 0.5s;
+}
+
+#start-btn:hover {
+    transition: 0.5s;
+    background-color: #FFAFAF;
+    cursor: pointer;
+    border: 1px solid #442727;
+
+}
+
+#game-over-text {
+    position: absolute;
+    left: 50%;
+    top: 10%;
+    transform: translate(-50%, -50%);
+    display: none;
+    font-weight: bold;
+    font-family: "Crimson Text", serif;
+    font-size: 52px;
+    text-align: center;
+    color: #442727;
+    margin: none;
+    padding: none;
+    white-space: nowrap;
+
+}
+
+#final-score-text {
+    position: absolute;
+    left: 50%;
+    top: 20%;
+    transform: translate(-50%, -50%);
+    display: none;
+    font-weight: 400;
+    font-family: "Crimson Text", serif;
+    font-size: 40px;
+    font-style: italic;
+    text-align: center;
+    color: #442727;
+    margin: none;
+    padding: none;
+    white-space: nowrap;
+}
+
+#hs-form {
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+    display: none;
+    text-align: center;
+    white-space: nowrap;
 }
+
+#hs-form-label {
+    font-family: "Crimson Text", serif;
+    font-size: 32px;
+    margin-bottom: 2rem;
+}
+
+#hs-form-name {
+    font-size: 20px;
+    border: none;
+    border-radius: none;
+    font-family: "Crimson Text", serif;
+    /* align-self: center; */
+}
+
+#hs-form-btn {
+    background-color: #FBFFE2;
+    font-weight: bold;
+    font-family: "Crimson Text", serif;
+    font-size: 18px;
+    color: #442727;
+    border: 1px solid #FBFFE2;
+    border-radius: 10px;
+    box-sizing: border-box;
+    transition: 0.5s;
+}
+
+#hs-form-btn:hover {
+    transition: 0.5s;
+    background-color: #FFAFAF;
+    cursor: pointer;
+    border: 1px solid #442727;
+}
+

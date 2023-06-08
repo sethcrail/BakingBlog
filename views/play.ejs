@@ -37,6 +37,14 @@
         <div id="game-wrapper">
             <canvas id="game-canvas">
             </canvas>
+            <h3 id="game-over-text"></h3>
+            <h5 id="final-score-text"></h5>
+            <form action="post" id="hs-form">
+                <label id="hs-form-label" for="hs-form-name">Enter Your Name:</label>
+                <br>
+                <input id="hs-form-name" type="text" name="hs-form-name">
+                <button id="hs-form-btn" type="submit">Submit</button>
+            </form>
             <button id="start-btn" onclick="startGame()">Start</button>
         </div>
 

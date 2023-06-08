@@ -2,6 +2,8 @@ const canvas = document.getElementById('game-canvas');
 const canvasRect = document.getElementById('game-wrapper').getBoundingClientRect();
 const ctx = canvas.getContext('2d');
 
+const startBtn = document.getElementById('start-btn');
+
 canvas.width = 360;
 canvas.height = 720;
 
@@ -9,7 +11,7 @@ const canvasCenterX = canvas.width / 2;
 const canvasCenterY = canvas.height / 2;
 
 //get this from DB
-let hiScore5 = 20;
+let hiScore5 = 1;
 
 let score = 0;
 let gameOver = false;
@@ -23,7 +25,7 @@ const playerWidth = 100;
 let delayValue = 500;
 let tickCounter = 0;
 
-ctx.font = "48px Crimson-Text serif";
+ctx.font = "48px Crimson Text";
 
 const canvasPosition = {
     x: canvasRect.x - window.scrollX,
@@ -114,7 +116,12 @@ class Food {
 //Game Architecture
 
 function startGame() {
-    document.getElementById("start-btn").style.display = "none";
+    startBtn.style.display = "none";
+    document.getElementById('game-over-text').style.display = "none";
+    document.getElementById('final-score-text').style.display = "none";
+    document.getElementById('hs-form').style.display = "none";
+
+
     init();
     animate();
 }
@@ -133,8 +140,6 @@ function init() {
 
     foodArray[2].type = 0;
     foodArray[2].delay = 400;
-
-    console.log(foodArray);
 }
 
 function drawScore() {
@@ -198,21 +203,33 @@ function speedUp() {
 
 
 function endGame() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    document.getElementById('game-over-text').style.display = "block";
+    document.getElementById('game-over-text').innerHTML = "Game Over!";
+
+    document.getElementById('final-score-text').style.display = "block";
+    document.getElementById('final-score-text').innerHTML = "Final Score: " + score;
+
+    startBtn.style.display = "block";
+    startBtn.style.fontSize = "32px";
+
+    startBtn.innerHTML = "Play Again";
+
     if (score > hiScore5) {
         hiScorePrompt();
+
     } else {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        ctx.fillText("Game Over", canvasCenterX - 50, canvasCenterY);
-        ctx.fillText("Final Score: " + score, canvasCenterX - 50, canvasCenterY + 10);
-    
+
     }
 
 }
 
 function hiScorePrompt() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.fillText("Hi-Score Achieved!", canvasCenterX - 50, canvasCenterY);
-    ctx.fillText("Final Score: " + score, canvasCenterX - 50, canvasCenterY + 10);
+    document.getElementById('game-over-text').innerHTML = "High Score!";
+    document.getElementById('game-over-text').style.fontSize = "48px";
+
+    document.getElementById('hs-form').style.display = "block";
 
 
 }
