@@ -19,6 +19,7 @@
     margin: none;
     padding: none;
     position: relative;
+    min-height: 720px;
 }
 
 #game-canvas {
@@ -27,7 +28,15 @@
     background-color: grey;
     margin: none;
     padding: none;
+    z-index: 0;
+    left: calc(50% - 180px);
+
 }
 
 #start-btn {
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
 }
