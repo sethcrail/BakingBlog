@@ -19,11 +19,35 @@ let gameOver = false;
 let foodArray = [];
 let numberOfFood = 3;
 let foodSpeedScale = 1;
-const foodSpeedMinimum = 2;
+const foodSpeedMinimum = 3;
 const playerHeight = 50;
-const playerWidth = 100;
+const playerWidth = 120;
 let delayValue = 500;
 let tickCounter = 0;
+
+const point = new Audio("/assets/game/audio/point.mp3");
+
+const bowl = new Image();
+bowl.src = "/assets/game/Bowl.png";
+
+const milk = new Image();
+milk.src = "/assets/game/Milk.png";
+
+const butter = new Image();
+butter.src = "/assets/game/Butter.png";
+
+const chocolate = new Image();
+chocolate.src = "/assets/game/Chocolate.png";
+
+const flour = new Image();
+flour.src = "/assets/game/Flour.png";
+
+const egg = new Image();
+egg.src = "/assets/game/Egg.png";
+
+const poison = new Image();
+poison.src = "/assets/game/Poison.png";
+
 
 ctx.font = "48px Crimson Text";
 
@@ -53,7 +77,7 @@ class Player {
         this.y = canvas.height - this.height;
     }
     draw() {
-        ctx.fillRect(this.x, this.y, this.width, this.height);
+        ctx.drawImage(bowl, this.x, this.y, this.width, this.height);
     }
     update() {
         this.x = mouse.x - canvasPosition.x - (this.width / 2);
@@ -64,53 +88,89 @@ let player = new Player;
 
 class Food {
     constructor() {
-        this.size = 50;
+        this.size = 75;
         this.x = (this.size / 2) + Math.random() * (canvas.width - this.size);
         this.y = 0 - this.size;
         this.dy = foodSpeedMinimum + Math.random() * foodSpeedScale;
         this.angle = Math.random() * 360;
         this.spin = Math.random() < 0.5 ? -1 : 1;
         this.delay = Math.floor(Math.random() * delayValue);
-        this.type = Math.floor(Math.random() * 3);
+        this.type = Math.floor(Math.random() * 8);
     }
 
     draw() {
         ctx.save();
-        if (this.type == 0 || this.type == 1) {
-            ctx.fillStyle = "green";
-        } else {
-            ctx.fillStyle = "red";
-        }
         ctx.translate(this.x, this.y);
         ctx.rotate(this.angle * Math.PI/360 * this.spin);
-        ctx.fillRect(0 - this.size/2, 0 - this.size/2, this.size, this.size);
+        switch (this.type) {
+            case 0:
+                ctx.drawImage(milk, 0 - (this.size / 2), 0 - (this.size / 2), this.size, this.size);
+                break;
+            case 1:
+                ctx.drawImage(butter, 0 - (this.size / 2), 0 - (this.size / 2), this.size, this.size);
+                break;
+            case 2:
+                ctx.drawImage(chocolate, 0 - (this.size / 2), 0 - (this.size / 2), this.size, this.size);
+                break;
+            case 3:
+                ctx.drawImage(flour, 0 - (this.size / 2), 0 - (this.size / 2), this.size, this.size);
+                break;
+            case 4:
+                ctx.drawImage(egg, 0 - (this.size / 2), 0 - (this.size / 2), this.size, this.size);
+                break;
+            case 5:
+                ctx.drawImage(poison, 0 - (this.size / 2), 0 - (this.size / 2), this.size, this.size);
+                break;
+            case 6:
+                ctx.drawImage(poison, 0 - (this.size / 2), 0 - (this.size / 2), this.size, this.size);
+                break; 
+            case 7:
+                ctx.drawImage(poison, 0 - (this.size / 2), 0 - (this.size / 2), this.size, this.size);
+                break;
+            default:
+                break;
+        }
         ctx.restore();
     }
 
+    reset() {
+        this.y = 0 - this.size;
+        this.x = (this.size / 2) + Math.random() * (canvas.width - this.size);
+        this.dy = foodSpeedMinimum + Math.random() * foodSpeedScale;
+        this.type = Math.floor(Math.random() * 8);
+        this.delay = Math.floor(Math.random() * delayValue);
+        this.spin = Math.random() < 0.5 ? -1 : 1;
+    }
+
+    move() {
+        this.y += this.dy;
+        this.angle++;
+    }
+
     update() {
-        if (this.y >= canvas.height){
+        if (this.y >= canvas.height + this.size / 2) {
+            this.reset();
+
+        } else if (this.y >= canvas.height - player.height) {
 
             if (this.x <= player.x + player.width && this.x >= player.x) {
-                    if (this.type == 0 || this.type == 1) {
-                        score++;
-                    } else {
-                        gameOver = true;
-                    }
-
+                if (this.type == 7 || this.type == 6 || this.type == 5) {
+                    gameOver = true;
+                } else {
+                    score++;
+                    point.play();
+                    this.reset();
+                }
+            } else {
+                this.move();
             }
 
-            this.y = 0 - this.size;
-            this.x = (this.size / 2) + Math.random() * (canvas.width - this.size);
-            this.dy = foodSpeedMinimum + Math.random() * foodSpeedScale;
-            this.type = Math.floor(Math.random() * 3);
-            this.delay = Math.floor(Math.random() * delayValue);
-
         } else {
-            this.y += this.dy;
-            this.angle++;
+            this.move();
         }
 
-    }
+
+    }   
 }
 
 //Game Architecture

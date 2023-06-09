@@ -25,7 +25,7 @@
 #game-canvas {
     height: 720px;
     width: 360px;
-    background-color: #FFAFAF;
+    background-color: #FBFFE2;
     border: 3px solid #442727;
     margin: none;
     padding: none;
@@ -38,12 +38,13 @@
     left: 50%;
     top: 80%;
     transform: translate(-50%, -50%);
-    background-color: #FBFFE2;
+    background-color: #FFAFAF;
+    box-shadow: 4px 4px 10px;
     font-weight: bold;
     font-family: "Crimson Text", serif;
     font-size: 40px;
     color: #442727;
-    border: 1px solid #FBFFE2;
+    border: 1px solid #FFAFAF;
     border-radius: 10px;
     padding: 2px 1rem;
     white-space: nowrap;
@@ -51,11 +52,15 @@
 }
 
 #start-btn:hover {
-    transition: 0.5s;
+    /* transition: 0.5s; */
     background-color: #FFAFAF;
     cursor: pointer;
     border: 1px solid #442727;
+    box-shadow: 5px 5px 10px;
+}
 
+#start-btn:active {
+    box-shadow: none;
 }
 
 #game-over-text {
