@@ -34,19 +34,55 @@
 
     <section class="game">
         <h1 class="play-title">Play</h1>
-        <div id="game-wrapper">
-            <canvas id="game-canvas">
-            </canvas>
-            <h3 id="game-over-text"></h3>
-            <h5 id="final-score-text"></h5>
-            <form action="post" id="hs-form">
-                <label id="hs-form-label" for="hs-form-name">Enter Your Name:</label>
-                <br>
-                <input id="hs-form-name" type="text" name="hs-form-name">
-                <button id="hs-form-btn" type="submit">Submit</button>
-            </form>
-            <button id="start-btn" onclick="startGame()">Start</button>
+        <div class="game-body">
+            <div id="game-wrapper">
+                <canvas id="game-canvas">
+                </canvas>
+                <h3 id="game-over-text"></h3>
+                <h5 id="final-score-text"></h5>
+                <form action="post" id="hs-form">
+                    <label id="hs-form-label" for="hs-form-name">Enter Your Name:</label>
+                    <br>
+                    <input id="hs-form-name" type="text" name="hs-form-name">
+                    <button id="hs-form-btn" type="submit">Submit</button>
+                </form>
+                <button id="start-btn" onclick="startGame()">Start</button>
+            </div>
+            <div class="game-info-container">
+                <h3 class="game-title">Kitchen Catcher</h3>
+                <p class="game-description">Collect as many ingredients as you can, but avoid the dangerous items!</p>
+                <table class="hi-score-table">
+                    <thead>
+                        <th class="hi-score-title" colspan="2">High Scores</th>
+                        
+                    </thead>
+                    <tbody>
+                        <tr class="hi-score">
+                            <td>Erin Mutchler</td>
+                            <td>178</td>
+                        </tr>
+                        <tr class="hi-score">
+                            <td>Erin Mutchler</td>
+                            <td>178</td>
+                        </tr>
+                        <tr class="hi-score">
+                            <td>Erin Mutchler</td>
+                            <td>178</td>
+                        </tr>
+                        <tr class="hi-score">
+                            <td>Erin Mutchler</td>
+                            <td>178</td>
+                        </tr>
+                        <tr class="hi-score">
+                            <td>Erin Mutchler</td>
+                            <td>178</td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
         </div>
+
 
 
     </section>
