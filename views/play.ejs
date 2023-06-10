@@ -40,11 +40,12 @@
                 </canvas>
                 <h3 id="game-over-text"></h3>
                 <h5 id="final-score-text"></h5>
-                <form action="post" id="hs-form">
+                <form action="/play" method="post" id="hs-form">
                     <label id="hs-form-label" for="hs-form-name">Enter Your Name:</label>
                     <br>
-                    <input id="hs-form-name" type="text" name="hs-form-name">
+                    <input id="hs-form-name" type="text" name="hsName">
                     <button id="hs-form-btn" type="submit">Submit</button>
+                    <input type="hidden" id="hs-form-score" name="hsScore">
                 </form>
                 <button id="start-btn" onclick="startGame()">Start</button>
             </div>
@@ -57,26 +58,12 @@
                         
                     </thead>
                     <tbody>
-                        <tr class="hi-score">
-                            <td>Erin Mutchler</td>
-                            <td>178</td>
-                        </tr>
-                        <tr class="hi-score">
-                            <td>Erin Mutchler</td>
-                            <td>178</td>
-                        </tr>
-                        <tr class="hi-score">
-                            <td>Erin Mutchler</td>
-                            <td>178</td>
-                        </tr>
-                        <tr class="hi-score">
-                            <td>Erin Mutchler</td>
-                            <td>178</td>
-                        </tr>
-                        <tr class="hi-score">
-                            <td>Erin Mutchler</td>
-                            <td>178</td>
-                        </tr>
+                        <% scoresList.forEach(score => { %>
+                            <tr class="hi-score">
+                                <td><%= score.name %></td>
+                                <td><%= score.score %></td>
+                            </tr>
+                        <% }); %>
 
                     </tbody>
                 </table>
@@ -88,7 +75,10 @@
     </section>
 
     <%- include("partials/footer.ejs") %>
+    <script>
+            var currentHighScore = <%- JSON.stringify(scoresList[4].score) %>;
 
+    </script>
     <script src="/js/play.js"></script>
 </body>
 

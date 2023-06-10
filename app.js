@@ -38,6 +38,12 @@ const recipeSchema = new mongoose.Schema({
 
 const Recipe = mongoose.model('Recipe', recipeSchema);
 
+const scoreSchema = new mongoose.Schema({
+    name: String,
+    score: Number
+});
+
+const Score = mongoose.model('Score', scoreSchema);
 
 
 //GET REQUESTS
@@ -128,7 +134,19 @@ app.get("/gallery", (req, res) => {
 });
 
 app.get("/play", (req, res) => {
-    res.render("play");
+
+    (async ()=> {
+        try {
+            const scoresList = await Score.find({}).sort({score: -1});
+            res.render("play", {scoresList: scoresList} );
+            console.log(scoresList);
+        } catch (err) {
+            console.log(err);
+        }
+    })();
+
+
+
 });
 
 app.get("/about", (req, res) => {
@@ -211,6 +229,28 @@ app.post("/compose", (req, res)=> {
             }
         })();
     };
+});
+
+
+app.post('/play', (req, res)=> {
+    (async ()=> {
+        try {
+            const score = new Score ({
+                name: req.body.hsName,
+                score: req.body.hsScore
+            });
+            await score.save();
+            const oldScore = await Score.aggregate([ 
+                { $filter: { 
+                    _id: "_id",
+                    min: { "$min": "$score" } 
+                }}.result
+            ]).result;
+            res.redirect("/play");
+        } catch (err) {
+            console.log(err);
+        }
+    })();
 });
 
 

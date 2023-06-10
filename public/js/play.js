@@ -10,9 +10,6 @@ canvas.height = 720;
 const canvasCenterX = canvas.width / 2;
 const canvasCenterY = canvas.height / 2;
 
-//get this from DB
-let hiScore5 = 1;
-
 let score = 0;
 let gameOver = false;
 
@@ -276,7 +273,7 @@ function endGame() {
 
     startBtn.innerHTML = "Play Again";
 
-    if (score > hiScore5) {
+    if (score > currentHighScore) {
         hiScorePrompt();
 
     } else {
@@ -287,9 +284,9 @@ function endGame() {
 
 function hiScorePrompt() {
     document.getElementById('game-over-text').innerHTML = "High Score!";
-    document.getElementById('game-over-text').style.fontSize = "48px";
-
+    document.getElementById('game-over-text').style.fontSize = "48px"
     document.getElementById('hs-form').style.display = "block";
+    document.getElementById('hs-form-score').value = score;
 
 
 }
