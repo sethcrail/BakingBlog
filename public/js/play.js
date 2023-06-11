@@ -18,7 +18,7 @@ let numberOfFood = 3;
 let foodSpeedScale = 1;
 const foodSpeedMinimum = 3;
 const playerHeight = 50;
-const playerWidth = 120;
+const playerWidth = 100;
 let delayValue = 500;
 let tickCounter = 0;
 
@@ -42,9 +42,14 @@ flour.src = "/assets/game/Flour.png";
 const egg = new Image();
 egg.src = "/assets/game/Egg.png";
 
-const poison = new Image();
-poison.src = "/assets/game/Poison.png";
+const knife = new Image();
+knife.src = "/assets/game/Knife.png";
 
+const rollingPin = new Image();
+rollingPin.src = "/assets/game/RollingPin.png";
+
+const measuringCup = new Image();
+measuringCup.src = "/assets/game/MeasuringCup.png";
 
 ctx.font = "48px Crimson Text";
 
@@ -62,7 +67,6 @@ onmousemove = (e) => {
     mouse.x = e.x;
     mouse.y = e.y;
 }
-
 
 //Game Entities
 
@@ -116,13 +120,13 @@ class Food {
                 ctx.drawImage(egg, 0 - (this.size / 2), 0 - (this.size / 2), this.size, this.size);
                 break;
             case 5:
-                ctx.drawImage(poison, 0 - (this.size / 2), 0 - (this.size / 2), this.size, this.size);
+                ctx.drawImage(knife, 0 - (this.size / 2), 0 - (this.size / 2), this.size, this.size);
                 break;
             case 6:
-                ctx.drawImage(poison, 0 - (this.size / 2), 0 - (this.size / 2), this.size, this.size);
+                ctx.drawImage(rollingPin, 0 - (this.size / 2), 0 - (this.size / 2), this.size, this.size);
                 break; 
             case 7:
-                ctx.drawImage(poison, 0 - (this.size / 2), 0 - (this.size / 2), this.size, this.size);
+                ctx.drawImage(measuringCup, 0 - (this.size / 2), 0 - (this.size / 2), this.size, this.size);
                 break;
             default:
                 break;
