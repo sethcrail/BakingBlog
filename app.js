@@ -139,7 +139,6 @@ app.get("/play", (req, res) => {
         try {
             const scoresList = await Score.find({}).sort({score: -1});
             res.render("play", {scoresList: scoresList} );
-            console.log(scoresList);
         } catch (err) {
             console.log(err);
         }
@@ -240,17 +239,30 @@ app.post('/play', (req, res)=> {
                 score: req.body.hsScore
             });
             await score.save();
-            const oldScore = await Score.aggregate([ 
-                { $filter: { 
-                    _id: "_id",
-                    min: { "$min": "$score" } 
-                }}.result
-            ]).result;
-            res.redirect("/play");
-        } catch (err) {
-            console.log(err);
-        }
+            await Score.find({})
+                .then((scores) => {
+                    if (scores.length >= 6) {
+                        Score.findOneAndDelete({})
+                            .sort({score: 1})
+                            .then(() => {
+                                res.redirect("/play");
+                            }).catch((err) => {
+                                console.log(err);
+                            });
+                    } else {
+                        res.redirect("/play");
+                    }
+                }).catch((err) => {
+                    console.log(err);
+                });
+
+            } catch (err) {
+                console.log(err);
+            }
     })();
+
+    
+
 });
 
 

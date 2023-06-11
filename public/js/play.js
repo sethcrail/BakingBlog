@@ -273,7 +273,7 @@ function endGame() {
 
     startBtn.innerHTML = "Play Again";
 
-    if (score > currentHighScore) {
+    if (score > currentHighScore5 || scoresList.length < 5) {
         hiScorePrompt();
 
     } else {

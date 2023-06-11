@@ -76,7 +76,14 @@
 
     <%- include("partials/footer.ejs") %>
     <script>
-            var currentHighScore = <%- JSON.stringify(scoresList[4].score) %>;
+        const scoresList = <%- JSON.stringify(scoresList) %>;
+        var currentHighScore5;
+        if (scoresList.length == 0) {
+            currentHighScore5 = 0;
+        } else {
+            currentHighScore5 = scoresList[scoresList.length - 1].score;
+
+        }
 
     </script>
     <script src="/js/play.js"></script>
