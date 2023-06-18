@@ -25,8 +25,8 @@ async function main() {
 const recipeSchema = new mongoose.Schema({
     foodName: String,
     title: String,
-    creationDate: String,
-    mostRecent: Boolean,
+    creationDate: Date,
+    modifyDate: Date,
     photoTitle: String,
     body: Array,
     quote: String,
@@ -50,9 +50,12 @@ const Score = mongoose.model('Score', scoreSchema);
 app.get("/", (req, res)=>{
     (async ()=> {
         try {
-            const foundRecipe = await Recipe.findOne({mostRecent: true});
+            const recipesList = await Recipe.find().sort({creationDate: -1});
+            const recentRecipe = recipesList[0];
+            const nextRecipe = recipesList[1];
             res.render("index", {
-                recipe: foundRecipe
+                recipe: recentRecipe,
+                nextRecipe: nextRecipe
             });
         } catch (err) {
             console.log(err);
@@ -93,9 +96,26 @@ app.get("/recipes", (req, res)=> {
 app.get("/recipes/:postId", (req, res)=> {
     (async ()=> {
         try {
+            let currentRecipe = "";
+            let nextRecipeTitle = "";
+            const recipesList = await Recipe.find().sort({creationDate: -1});
+            recipesList.forEach((recipe, i) => {
+                if (recipe.photoTitle === req.params.postId) {
+                    currentRecipe = recipe;
+                    if (i === recipesList.length - 1) {
+                        nextRecipe = recipesList[0];
+                    } else {
+                        nextRecipe = recipesList[i + 1];
+                    }
+
+                } else {
+                    return;
+                }
+            })
             const foundRecipe = await Recipe.findOne({photoTitle: req.params.postId});
             res.render("recipe", {
-                recipe: foundRecipe
+                recipe: currentRecipe,
+                nextRecipe: nextRecipe
             });
         } catch (err) {
             console.log(err);
@@ -117,8 +137,6 @@ app.get("/gallery", (req, res) => {
                     } else {
                         numberOfSections = numberOfPhotoSets;
                     }
-                    console.log(photoList);
-                    console.log(numberOfSections);
                     res.render("gallery", {
                         photos: photoList,
                         numberOfSections: numberOfSections
@@ -174,16 +192,15 @@ app.get("/:postId", (req, res)=> {
 //POST REQUESTS
 app.post("/compose", (req, res)=> {
 
-    if (req.body.editRecipe == "New Recipe") {
+    const today = new Date();
 
-        const today = new Date();
-        const options = {year: 'numeric', month: 'long', day: 'numeric'};
+    if (req.body.editRecipe == "New Recipe") {
 
         var newRecipe = new Recipe({
             foodName: req.body.foodName,
             title: req.body.title,
-            mostRecent: true,
-            creationDate: today.toLocaleDateString('en-US', options),
+            modifyDate: today,
+            creationDate: today,
             photoTitle: req.body.foodName.replace(/\s+/g, '').toLowerCase(),
             body: req.body.body.split('\r\n\r\n'),
             quote: req.body.quote,
@@ -195,11 +212,6 @@ app.post("/compose", (req, res)=> {
 
         (async ()=> {
             try {
-                const allRecipes = await Recipe.find();
-                await allRecipes.forEach(recipe => {
-                    recipe.mostRecent = false;
-                    recipe.save();
-                });
                 await newRecipe.save();
                 console.log("Recipe Saved.");
                 res.redirect("/compose");
@@ -214,6 +226,7 @@ app.post("/compose", (req, res)=> {
                 await Recipe.findOneAndUpdate({foodName: req.body.editRecipe}, {
                     foodName: req.body.foodName,
                     title: req.body.title,
+                    modifyDate: today,
                     photoTitle: req.body.foodName.replace(/\s+/g, '').toLowerCase(),
                     body: req.body.body.split('\r\n\r\n'),
                     quote: req.body.quote,

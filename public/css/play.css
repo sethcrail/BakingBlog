@@ -184,6 +184,10 @@
     line-height: 4rem;
 }
 
+.hi-score-score {
+    text-align: right;
+}
+
 @media (max-width: 900px) {
     .game-body {
         flex-direction: column-reverse;

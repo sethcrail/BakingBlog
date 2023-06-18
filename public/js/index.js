@@ -7,6 +7,11 @@ function listMode() {
     document.querySelector(".recipe-list").style.display = "flex";
 }
 
+function convertList() {
+    document.querySelector(".metric").classList.toggle("hidden");
+    document.querySelector(".imperial").classList.toggle("hidden");
+}
+
 // Fade between hero and recipe
 window.addEventListener('scroll', ()=> {
     var scrolled = window.scrollY;

@@ -6,7 +6,9 @@
 
     <div class="story-text">
         <h3 class="story-title"><%= recipe.title %></h3>
-        <p class="story-subtitle"><%= recipe.creationDate %></p>
+        <% const options = {month: 'long', day: 'numeric', year: 'numeric'} %>
+
+        <p class="story-subtitle"><%= recipe.creationDate.toLocaleDateString('en-US', options) %></p>
         <p class="story-body"><%= recipe.body[0] %></p>
 
         <% if (recipe.quote) { %>
@@ -21,10 +23,10 @@
         <% } %>
         
         <div class="next-recipe-container-story">
-            <button class="next-recipe-btn-story">
-                Eclairs - Pandemic Be Damned
+            <a href="/recipes/<%= nextRecipe.photoTitle %>" class="next-recipe-btn-story">
+                <%= nextRecipe.title %>
                 <svg class="right-arrow-svg" xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 96 960 960" width="48"><path d="m561 814-43-42 168-168H160v-60h526L517 375l43-42 241 241-240 240Z"/></svg>
-            </button>
+            </a>
         </div>
     </div>
 

@@ -5,7 +5,8 @@
 
         <div class="recipe-header-text">
             <h1 class="recipe-header-title"><%= recipe.foodName %></h1>
-            <h3 class="recipe-header-subtitle"><%= recipe.creationDate %></h3>
+            <% const options = {month: 'long', day: 'numeric', year: 'numeric'} %>
+            <h3 class="recipe-header-subtitle"><%= recipe.creationDate.toLocaleDateString('en-US', options) %></h3>
         </div>
 
         <hr class="recipe-header-border middle-border">

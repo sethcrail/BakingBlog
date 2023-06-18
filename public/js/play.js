@@ -2,6 +2,9 @@ const canvas = document.getElementById('game-canvas');
 const canvasRect = document.getElementById('game-wrapper').getBoundingClientRect();
 const ctx = canvas.getContext('2d');
 
+canvas.width = canvas.getBoundingClientRect().width;
+canvas.height = canvas.getBoundingClientRect().height;
+
 const startBtn = document.getElementById('start-btn');
 
 canvas.width = 360;
@@ -17,12 +20,15 @@ let foodArray = [];
 let numberOfFood = 3;
 let foodSpeedScale = 1;
 const foodSpeedMinimum = 3;
-const playerHeight = 50;
-const playerWidth = 100;
+const playerHeight = 60;
+const playerWidth = playerHeight * 2;
 let delayValue = 500;
 let tickCounter = 0;
 
 const point = new Audio("/assets/game/audio/point.mp3");
+
+const background = new Image();
+background.src = "/assets/game/KitchenBackground.png";
 
 const bowl = new Image();
 bowl.src = "/assets/game/Bowl.png";
@@ -78,7 +84,10 @@ class Player {
         this.y = canvas.height - this.height;
     }
     draw() {
+        ctx.imageSmoothingEnabled = false;
         ctx.drawImage(bowl, this.x, this.y, this.width, this.height);
+        ctx.imageSmoothingEnabled = true;
+
     }
     update() {
         this.x = mouse.x - canvasPosition.x - (this.width / 2);
@@ -182,9 +191,10 @@ function startGame() {
     document.getElementById('final-score-text').style.display = "none";
     document.getElementById('hs-form').style.display = "none";
 
-
     init();
+
     animate();
+
 }
 
 function init() {
@@ -204,11 +214,15 @@ function init() {
 }
 
 function drawScore() {
+    ctx.imageSmoothingEnabled = false;
     ctx.fillText("Score: " + score, 10, 50);
+    ctx.imageSmoothingEnabled = true;
 }
 
 function animate() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.drawImage(background, -10, -10, canvas.width + 20, canvas.height + 20);
+
     for (let i = 0; i < foodArray.length; i++) {
         foodArray[i].draw();
         if (foodArray[i].delay > 0) {
