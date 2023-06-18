@@ -14,7 +14,6 @@
     <link rel="stylesheet" href="/css/gallery.css" type="text/css" >
     <script src="/js/menu-button.js"></script>
     <script src="/js/side-nav.js"></script>
-    <script src="/js/gallery.js"></script>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,16 +27,26 @@
     <%- include("partials/menu-button.ejs") %>
 
     <section class="gallery-bgd">
+
         <h1 class="gallery-page-title">Gallery</h1>
         <div class="gallery-container">
             <% photos.forEach(photo => { %>
-                <button class="gallery-img-container">
+                <button class="gallery-img-container" onClick="openModal(this.firstElementChild.src)">
                     <img class="gallery-img" src="/assets/recipe-imgs/<%= photo %>" alt="<%= photo %>">
                 </button>
             <% }); %>
         </div>
+
+        <dialog id="modal">
+            <img id="modal-img" src="" alt="">
+            <button id="modalClose" onClick="closeModal()">
+                    &times;
+            </button>
+        </dialog>
+
     </section>
 
     <%- include("partials/footer.ejs") %>
 
+    <script src="/js/gallery.js"></script>
 </body>

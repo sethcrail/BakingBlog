@@ -1,5 +1,5 @@
 .gallery-bgd {
-    padding: 2rem 6.5rem;
+    padding: 2rem 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -8,7 +8,7 @@
 
 .gallery-page-title {
     font-family: 'Dancing Script', cursive;
-    font-size: 64px;
+    font-size: 4rem;
     color: #442727;
     padding: 0;
     margin: 0 auto 2rem auto;
@@ -18,13 +18,16 @@
     display: grid;
     gap: 1rem;
     box-sizing: border-box;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    width: 70%;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 1fr;
+    width: 87vw;
+
 }
 
 .gallery-img-container {
     background-color: #FBFFE2;
     border: none;
+    max-height: 29vw;
     padding: 6px;
     box-shadow: 0 0 7px rgba(68, 39, 39, 0.3);
 }
@@ -46,6 +49,7 @@
 .gallery-img-container:nth-child(8n+6) {
     grid-row: span 2;
     grid-column: span 1;
+    max-height: 200vw;
 }
 
 .gallery-img-container:nth-child(8n+4),
@@ -62,38 +66,92 @@
     grid-column: span 1;
 }
 
+/* MODALS */
+
+#modal {
+    max-width: 60%;
+    max-height: 90%;
+    border: none;
+    padding: 0;
+    overflow: auto;
+}
+
+#modalClose {
+    background-color: transparent;
+    border: none;
+    font-size: 4rem;
+    color: white;
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 0;
+    margin: 0;
+    width: 4rem;
+    height: 4rem;
+}
+
+#modalClose:hover {
+    cursor: pointer;
+
+}
+
+#modal::backdrop {
+    background-color: rgb(255, 255, 255, 0.7);
+}
+
+#modal-img {
+    width: 100%;
+    height: auto;
+    max-width: 80vw;
+    max-height: 80vh;
+    display: block;
+}
+
+
+
 @media (min-width: 1300px) {
     .gallery-container {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        min-width: 720px;
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 
 @media (max-width: 1300px) {
     .gallery-container {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        min-width: 720px;
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 
 @media (max-width: 930px) {
+    .gallery-img-container {
+        min-height: 43.5vw;
+        max-height: 43.5vw;
+    }
     .gallery-container {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        width: 100%;
-        min-width: 480px;
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media (max-width: 600px) {
     .gallery-container {
         grid-template-columns: repeat(1, 1fr);
-        min-width: 320px;
     }
+
+    .gallery-img-container {
+        min-height: 87vw;
+        max-height: 87vw;
+    }
+
+    /* .gallery-img-container {
+        grid-row: span 1;
+        grid-column: span 1;
+    } */
     
     .gallery-img-container:nth-child(8n+4),
     .gallery-img-container:nth-child(8n+5) {
         grid-row: span 1;
         grid-column: span 1;
     }
+
+    /* make modal full screen here */
 
 }
