@@ -40,14 +40,14 @@
                         <a href="recipes/<%= recipeList[i].photoTitle %>" class="rl-recipe-container yellow">
                             <h3 class="rl-recipe-title-left"><%= recipeList[i].foodName %></h3>
                             <div class="rl-recipe-img-container yellow">
-                                <img class="rl-img-right" src="/assets/recipe-imgs/<%= recipeList[i].photoTitle %>.jpeg"" alt="">
+                                <img class="rl-img" src="/assets/recipe-imgs/<%= recipeList[i].photoTitle %>.jpeg"" alt="">
                             </div>
 
                     <% } else { %>
                         <a href="recipes/<%= recipeList[i].photoTitle %>" class="rl-recipe-container pink">
                             <h3 class="rl-recipe-title-left"><%= recipeList[i].foodName %></h3>
                             <div class="rl-recipe-img-container pink">
-                                <img class="rl-img-right" src="/assets/recipe-imgs/<%= recipeList[i].photoTitle %>.jpeg"" alt="">
+                                <img class="rl-img" src="/assets/recipe-imgs/<%= recipeList[i].photoTitle %>.jpeg"" alt="">
                             </div>
 
                     <% } %>
@@ -55,7 +55,7 @@
                 <% } else { %>
                     <a href="recipes/<%= recipeList[i].photoTitle %>" class="rl-recipe-container blue">
                         <div class="rl-recipe-img-container blue">
-                            <img class="rl-img-left" src="/assets/recipe-imgs/<%= recipeList[i].photoTitle %>.jpeg"" alt="">
+                            <img class="rl-img" src="/assets/recipe-imgs/<%= recipeList[i].photoTitle %>.jpeg"" alt="">
                         </div>
                         <h3 class="rl-recipe-title-right"><%= recipeList[i].foodName %></h3>
 

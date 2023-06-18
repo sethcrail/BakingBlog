@@ -1,5 +1,5 @@
 .rl-container {
-    padding: 4rem 0 0 0;
+    padding: 2rem 0 0 0;
     margin: auto;
     display: flex;
     flex-direction: column;
@@ -41,7 +41,6 @@
     background-color: #FBFFE2;
 }
 
-
 .blue {
     background-color: #B6EAFA;
 }
@@ -53,18 +52,20 @@
 /* TITLES */
 .rl-recipe-title-left {
     font-family: 'Dancing Script', cursive;
-    font-size: 48px;
+    font-size: clamp(2rem, 7vw, 4rem);
     color: #442727;
     padding: 0;
-    margin-left: 6rem;
+    margin-left: clamp(2%, 7%, 10%);
+    /* margin-right: 10%; */
 }
 
 .rl-recipe-title-right {
     font-family: 'Dancing Script', cursive;
-    font-size: 48px;
+    font-size: clamp(2rem, 7vw, 4rem);
     color: #442727;
     padding: 0;
-    margin-right: 6rem;
+    margin-right: clamp(2%, 7%, 10%);
+    /* margin-left: 10%; */
 }
 
 /* IMG CONTAINERS */
@@ -141,16 +142,23 @@
 }
 
 /* IMAGES */
-.rl-img-right {
+.rl-img {
     height: inherit;
     width: inherit;
     object-fit: cover;
     z-index: 0;
 }
 
-.rl-img-left {
-    height: inherit;
-    width: inherit;
-    object-fit: cover;
-    z-index: 0;
+
+
+@media (max-width: 540px) {
+    .rl-recipe-img-container.blue::before {
+        display: none;
+    }
+    .rl-recipe-img-container.pink::after {
+        display: none;
+    }
+    .rl-recipe-img-container.yellow::after {
+        display: none;
+    }
 }
