@@ -35,31 +35,11 @@
     <section class="rl-container">
         <h1 class="rl-title">Recipes</h1>
         <% for (i = 0; i < recipeList.length; i++) { %>
-                <% if (i % 2 == 0) { %>
-                    <% if ((i / 2) % 2 == 0) { %>
-                        <a href="recipes/<%= recipeList[i].photoTitle %>" class="rl-recipe-container yellow">
-                            <h3 class="rl-recipe-title-left"><%= recipeList[i].foodName %></h3>
-                            <div class="rl-recipe-img-container yellow">
-                                <img class="rl-img" src="/assets/recipe-imgs/<%= recipeList[i].photoTitle %>.jpeg"" alt="">
-                            </div>
-
-                    <% } else { %>
-                        <a href="recipes/<%= recipeList[i].photoTitle %>" class="rl-recipe-container pink">
-                            <h3 class="rl-recipe-title-left"><%= recipeList[i].foodName %></h3>
-                            <div class="rl-recipe-img-container pink">
-                                <img class="rl-img" src="/assets/recipe-imgs/<%= recipeList[i].photoTitle %>.jpeg"" alt="">
-                            </div>
-
-                    <% } %>
-
-                <% } else { %>
-                    <a href="recipes/<%= recipeList[i].photoTitle %>" class="rl-recipe-container blue">
-                        <div class="rl-recipe-img-container blue">
-                            <img class="rl-img" src="/assets/recipe-imgs/<%= recipeList[i].photoTitle %>.jpeg"" alt="">
-                        </div>
-                        <h3 class="rl-recipe-title-right"><%= recipeList[i].foodName %></h3>
-
-                <% } %>
+            <a href="recipes/<%= recipeList[i].photoTitle %>" class="rl-recipe-container">
+                <h3 class="rl-recipe-title"><%= recipeList[i].foodName %></h3>
+                <div class="rl-recipe-img-container">
+                    <img class="rl-img" src="/assets/recipe-imgs/<%= recipeList[i].photoTitle %>.jpeg"" alt="">
+                </div>
             </a>
         <% }; %>
 
