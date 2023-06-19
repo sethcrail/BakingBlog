@@ -73,31 +73,50 @@
     max-height: 90%;
     border: none;
     padding: 0;
-    overflow: auto;
-}
-
-#modalClose {
-    background-color: transparent;
-    border: none;
-    font-size: 4rem;
-    color: white;
-    position: absolute;
-    right: 0;
-    top: 0;
-    padding: 0;
-    margin: 0;
-    width: 4rem;
-    height: 4rem;
-}
-
-#modalClose:hover {
-    cursor: pointer;
-
+    box-shadow: 0px 0px 10px;
+    overflow: visible;
+    animation-name: modalAnimation;
+    animation-duration: 0.5s;
 }
 
 #modal::backdrop {
     background-color: rgb(255, 255, 255, 0.7);
+    animation-name: modalBackdropAnimation;
+    animation-duration: 1s;
 }
+
+@keyframes modalAnimation {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+@keyframes modalBackdropAnimation {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+#modalClose {
+    width: 4rem;
+    height: 4rem;
+    background-color: transparent;
+    border: none;
+    fill: #442727;
+    position: absolute;
+    top: -4rem;
+    right: 0;
+    padding: 0;
+    margin: 0;
+    transition: 0.5s;
+}
+
+#modalClose:hover {
+    cursor: pointer;
+    fill: #824a4a;
+
+
+}
+
+
 
 #modal-img {
     width: 100%;
@@ -121,7 +140,7 @@
     }
 }
 
-@media (max-width: 930px) {
+@media (max-width: 1080px) {
     .gallery-img-container {
         min-height: 43.5vw;
         max-height: 43.5vw;
@@ -131,7 +150,7 @@
     }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 480px) {
     .gallery-container {
         grid-template-columns: repeat(1, 1fr);
     }
@@ -153,5 +172,19 @@
     }
 
     /* make modal full screen here */
+    #modal {
+        max-width: 100%;
+        max-height: 100%;
+        width: 100%;
+        margin: auto;
+    }
+
+    #modal-img {
+        max-width: 100vw;
+        max-height: 100vh;
+
+    }
 
 }
+
+
