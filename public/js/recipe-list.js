@@ -1,0 +1,34 @@
+
+function storyMode() {
+    document.querySelector(".recipe-story").style.display = "flex";
+    document.querySelector(".recipe-list").style.display = "none";
+}
+function listMode() {
+    document.querySelector(".recipe-story").style.display = "none";
+    document.querySelector(".recipe-list").style.display = "flex";
+}
+
+function convertList() {
+    document.querySelector(".metric").classList.toggle("hidden");
+    document.querySelector(".imperial").classList.toggle("hidden");
+}
+
+const ingredientsList = document.getElementById('ingredient-list-container-mobile');
+let isOpen = false;
+console.log(ingredientsList.children[0].children[1]);
+
+function toggleIngredients() {
+
+    if (isOpen) {
+        ingredientsList.style.height = "2rem";
+        ingredientsList.style.width = "10rem";
+        ingredientsList.children[0].children[1].style.transform = 'rotate(0deg)';
+
+    } else {
+        ingredientsList.style.height = "100%";
+        ingredientsList.style.width = "60%";
+        ingredientsList.children[0].children[1].style.transform = 'rotate(180deg)';
+
+    }
+    isOpen = !isOpen;
+}

@@ -104,7 +104,7 @@
         justify-content: space-between;
         min-height: 500px;
         height: auto;
-        overflow: visible;
+        overflow: hidden;
     }
 
     .middle-border {

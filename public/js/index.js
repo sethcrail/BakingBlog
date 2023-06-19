@@ -1,16 +1,3 @@
-function storyMode() {
-    document.querySelector(".recipe-story").style.display = "flex";
-    document.querySelector(".recipe-list").style.display = "none";
-}
-function listMode() {
-    document.querySelector(".recipe-story").style.display = "none";
-    document.querySelector(".recipe-list").style.display = "flex";
-}
-
-function convertList() {
-    document.querySelector(".metric").classList.toggle("hidden");
-    document.querySelector(".imperial").classList.toggle("hidden");
-}
 
 // Fade between hero and recipe
 window.addEventListener('scroll', ()=> {
