@@ -70,7 +70,7 @@
 
 #modal {
     max-width: 60%;
-    max-height: 90%;
+    max-height: 80%;
     border: none;
     padding: 0;
     box-shadow: 0px 0px 10px;
@@ -107,13 +107,13 @@
     padding: 0;
     margin: 0;
     transition: 0.5s;
+    outline: none;
 }
 
 #modalClose:hover {
     cursor: pointer;
     fill: #824a4a;
 }
-
 
 
 #modal-img {
@@ -171,10 +171,11 @@
 
     /* make modal full screen here */
     #modal {
-        max-width: 100%;
+        max-width: 90%;
         max-height: 100%;
-        width: 100%;
+        /* width: 100%; */
         margin: auto;
+        transform:translate(0, 2rem);
     }
 
     #modal-img {
