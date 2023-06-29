@@ -157,11 +157,6 @@
         min-height: 87vw;
         max-height: 87vw;
     }
-
-    /* .gallery-img-container {
-        grid-row: span 1;
-        grid-column: span 1;
-    } */
     
     .gallery-img-container:nth-child(8n+4),
     .gallery-img-container:nth-child(8n+5) {
@@ -169,11 +164,9 @@
         grid-column: span 1;
     }
 
-    /* make modal full screen here */
     #modal {
         max-width: 90%;
         max-height: 100%;
-        /* width: 100%; */
         margin: auto;
         transform:translate(0, 2rem);
     }
