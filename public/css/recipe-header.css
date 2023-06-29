@@ -23,19 +23,21 @@
     justify-content: center;
     margin-left: 4rem;
     z-index: 2;
-    font-family: 'Dancing Script', cursive;
     filter: drop-shadow(0px 0px 5px rgba(0,0,0,0.25));
     color: #442727;
     text-align: center;
 }
 
 .recipe-header-title {
+    font-family: 'Dancing Script', cursive;
     font-size: 64px;
     font-weight: bold;
     margin: 0 4.5rem 1rem 4.5rem;
 }
 
 .recipe-header-subtitle {
+    font-family: 'Crimson-text', serif;
+    font-style: italic;
     font-size: 32px;
     font-weight: 400;
     margin: 0 4.5rem;

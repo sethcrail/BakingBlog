@@ -6,18 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BakingBlog</title>
 
-    <!-- Styles and Scripts -->
+    <!-- Main Stylesheet -->
     <link rel="stylesheet" href="/css/styles.css" type="text/css" >
+    <!-- Partials Stylesheets -->
+    <link rel="stylesheet" href="/css/menu-button.css" type="text/css" >
+    <link rel="stylesheet" href="/css/side-nav.css" type="text/css" >
     <link rel="stylesheet" href="/css/recipe-header.css" type="text/css" >
     <link rel="stylesheet" href="/css/recipe-story.css" type="text/css" >
     <link rel="stylesheet" href="/css/recipe-list.css" type="text/css" >
     <link rel="stylesheet" href="/css/footer.css" type="text/css" >
-    <link rel="stylesheet" href="/css/side-nav.css" type="text/css" >
-    <link rel="stylesheet" href="/css/hero.css" type="text/css" >
-    <link rel="stylesheet" href="/css/menu-button.css" type="text/css" >
-    <script src="/js/index.js"></script>
-    <script src="/js/menu-button.js"></script>
-    <script src="/js/side-nav.js"></script>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,7 +26,20 @@
     
     <%- include("partials/side-nav.ejs") %>
     <%- include("partials/menu-button.ejs") %>
-    <%- include("partials/hero.ejs") %>
+
+    <section class="hero">
+        <img class="donut" src="/assets/DONUT.png" alt="DONUT">
+        
+        <h1 class="hero-title hero-text">Bake Me Like One of Your Russian Girls</h1>
+        
+        <h3 class="hero-subtitle hero-text">One recipe blog to rule them all.</h3>
+        
+        <svg class="scroll-directive" width="52" height="12" viewBox="0 0 52 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1 1L26 11L51 1" stroke="#442727"/>
+        </svg>
+    </section>
+    
+    <section class="empty"></section>
 
     <section class="recipe">
         <%- include("partials/recipe-header.ejs") %>
@@ -39,6 +49,10 @@
 
     <%- include("partials/footer.ejs") %>
 
+    <!-- Script Files -->
+    <script src="/js/index.js"></script>
+    <script src="/js/menu-button.js"></script>
+    <script src="/js/side-nav.js"></script>
     <script src="/js/recipe-list.js"></script>
 </body>
 
