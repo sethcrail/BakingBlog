@@ -21,7 +21,6 @@
     grid-template-columns: repeat(3, 1fr);
     grid-auto-rows: 1fr;
     width: 87vw;
-
 }
 
 .gallery-img-container {

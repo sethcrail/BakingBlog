@@ -4,6 +4,13 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const fs = require ("fs");
 
+const accountSid = fs.readFileSync('private/twilioSid.txt', 'utf8');
+const authToken = fs.readFileSync('private/twilioToken.txt', 'utf8');;
+const client = require('twilio')(accountSid, authToken);
+
+const personalNumber = fs.readFileSync('private/personalNumber.txt', 'utf8');
+const twilioNumber = fs.readFileSync('private/twilioNumber.txt', 'utf8');
+
 const app = express();
 
 app.set("view engine", "ejs");
@@ -268,17 +275,31 @@ app.post('/play', (req, res)=> {
                 }).catch((err) => {
                     console.log(err);
                 });
-
             } catch (err) {
                 console.log(err);
             }
     })();
-
-    
-
 });
 
+app.post('/contact', (req, res) => {
 
+    const firstName = req.body.firstName;
+    const lastName = req.body.lastName;
+    const email = req.body.email;
+    const message = req.body.message;
+
+    client.messages
+        .create({
+            body: firstName + lastName + ' sent you a message: "' + message + '". Reply to their email address: ' + email,
+            to: personalNumber,
+            from: twilioNumber
+        })
+        .then((response) => {
+            console.log(response);
+            res.redirect('/contact');
+        })
+        .catch(error => console.log(error));
+});
 
 //Server Start
 app.listen(3000, ()=> {

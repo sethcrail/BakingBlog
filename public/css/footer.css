@@ -5,6 +5,8 @@
     justify-content: space-around;
     align-items: center;
     padding: 2px 0;
+    justify-self: flex-end;
+    width: 100%;
 }
 
 .footer-favs {
