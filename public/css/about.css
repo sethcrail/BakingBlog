@@ -1,5 +1,4 @@
 .about-bgd {
-    padding: 2rem 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -9,31 +8,25 @@
 .about-container {
     display: flex;
     flex-direction: row;
-    background-color: #FBFFE2;
-    border-top: 2px solid #442727;
-    border-bottom: 2px solid #442727;
+    background-color: var(--yellow);
+    border-top: 2px solid var(--brown);
+    border-bottom: 2px solid var(--brown);
+    width: 100%;
+    box-sizing: border-box;
     max-height: 533.33px;
-}
-
-.about-page-title {
-    font-family: 'Dancing Script', cursive;
-    font-size: 64px;
-    color: #442727;
-    padding: 0;
-    margin: 0 auto 2rem auto;
 }
 
 .about-body {
     padding: 2rem 2rem 2rem 2rem;
     font-family: 'Crimson Text', serif;
     font-size: clamp(0.5rem, 1.5vw, 1.25rem);
-    color: #442727;
+    color: var(--brown);
     align-self: center;
 }
 
 .about-border {
     display: none;
-    border: 1px solid #442727;
+    border: 1px solid var(--brown);
     height: 0px;
     width: 100%;
     margin: -4px;
@@ -58,7 +51,7 @@
 .about-img-container::before {
     content: "";
     position: absolute;
-    border-left: 75px solid #FBFFE2;
+    border-left: 75px solid var(--yellow);
     border-bottom: 533.33px solid transparent;
     left: 0;
     top: 0;
@@ -68,18 +61,12 @@
 .about-img-container::after {
     content: "";
     position: absolute;
-    border-right: 75px solid #FBFFE2;
+    border-right: 75px solid var(--yellow);
     border-top: 533.33px solid transparent;
     right: 0;
     bottom: 0;
     z-index: 1;
 }
-
-/* @media (max-width: 1275px ) {
-    .about-body {
-        font-size: 16px;
-    }
-} */
 
 @media (max-width: 720px ) {
     .about-container {

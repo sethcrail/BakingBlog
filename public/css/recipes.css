@@ -1,16 +1,8 @@
 .rl-container {
-    padding: 2rem 0 0 0;
     display: flex;
     flex-direction: column;
-    align-items: left;
-}
-
-.rl-title {
-    font-family: 'Dancing Script', cursive;
-    font-size: 4rem;
-    color: #442727;
-    padding: 0;
-    margin: 0 auto 2rem auto;
+    align-items: center;
+    padding-bottom: 0;
 }
 
 /* RECIPE CONTAINERS */
@@ -24,7 +16,7 @@
     height: 200px;
     width: 100%;
     margin: auto;
-    border-top: 3px solid #442727;
+    border-top: 3px solid var(--brown);
     transition: 0.5s;
 }
 
@@ -33,15 +25,15 @@
 }
 
 .rl-recipe-container:nth-child(3n-2) {
-    background-color: #B6EAFA;
+    background-color: var(--blue);
 }
 
 .rl-recipe-container:nth-child(3n-1) {
-    background-color: #FBFFE2;
+    background-color: var(--yellow);
 }
 
 .rl-recipe-container:nth-child(3n) {
-    background-color: #FFAFAF;
+    background-color: var(--pink);
 }
 
 .rl-recipe-container:hover {
@@ -57,7 +49,7 @@
     font-weight: 400;
     font-size: clamp(2rem, 7vw, 3.5rem);
     text-align: center;
-    color: #442727;
+    color: var(--brown);
     padding: 0;
 }
 
@@ -98,29 +90,29 @@
 
 /* YELLOW */
 .rl-recipe-container:nth-child(3n-1) > .rl-recipe-img-container:before {
-    border-left: 75px solid #FBFFE2;
+    border-left: 75px solid var(--yellow);
 }
 
 .rl-recipe-container:nth-child(3n-1) > .rl-recipe-img-container:after {
-    border-right: 75px solid #FBFFE2;
+    border-right: 75px solid var(--yellow);
 }
 
 /* BLUE */
 .rl-recipe-container:nth-child(3n-2) > .rl-recipe-img-container:before {
-    border-left: 75px solid #B6EAFA;
+    border-left: 75px solid var(--blue);
 }
 
 .rl-recipe-container:nth-child(3n-2) > .rl-recipe-img-container:after {
-    border-right: 75px solid #B6EAFA;
+    border-right: 75px solid var(--blue);
 }
 
 /* PINK */
 .rl-recipe-container:nth-child(3n) > .rl-recipe-img-container:before {
-    border-left: 75px solid #FFAFAF;
+    border-left: 75px solid var(--pink);
 }
 
 .rl-recipe-container:nth-child(3n) > .rl-recipe-img-container:after {
-    border-right: 75px solid #FFAFAF;
+    border-right: 75px solid var(--pink);
 }
 
 /* IMAGES */

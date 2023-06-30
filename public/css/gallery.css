@@ -1,17 +1,8 @@
 .gallery-bgd {
-    padding: 2rem 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     min-height: 100vh;
-}
-
-.gallery-page-title {
-    font-family: 'Dancing Script', cursive;
-    font-size: 4rem;
-    color: #442727;
-    padding: 0;
-    margin: 0 auto 2rem auto;
 }
 
 .gallery-container {
@@ -24,7 +15,7 @@
 }
 
 .gallery-img-container {
-    background-color: #FBFFE2;
+    background-color: var(--yellow);
     border: none;
     max-height: 29vw;
     padding: 6px;
@@ -99,7 +90,7 @@
     height: 4rem;
     background-color: transparent;
     border: none;
-    fill: #442727;
+    fill: var(--brown);
     position: absolute;
     top: -4rem;
     right: 0;
@@ -175,7 +166,6 @@
         max-height: 100vh;
 
     }
-
 }
 
 

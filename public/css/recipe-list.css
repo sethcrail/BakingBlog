@@ -1,7 +1,7 @@
 .recipe-list {
     flex-direction: column;
     justify-content: center;
-    background-color: #FBFFE2;
+    background-color: var(--yellow);
     margin-bottom: 2rem;
     display: none;
     max-width: 1080px;
@@ -19,41 +19,41 @@
 .story-btn-list {
     cursor: pointer;
     font-family:'Dancing Script', cursive;
-    color: #442727;
+    color: var(--brown);
     font-size: 32px;
-    border: 2px solid #B6EAFA;
+    border: 2px solid var(--blue);
     border-right: 2px solid transparent;
     border-radius: 10px 0 0 10px;
     text-decoration: none;
-    background-color: #B6EAFA;
+    background-color: var(--blue);
     padding: 0 2rem;
     transition: 0.5s;
     box-sizing: border-box;
-    box-shadow: 0px 0px 3px#442727;
+    box-shadow: 0px 0px 3px var(--brown);
 }
 
 .story-btn-list:hover {
-    background-color: white;
+    background-color: var(--white);
     transition: 0.5s;
 }
 
 .list-btn-list {
     cursor: pointer;
     font-family:'Dancing Script', cursive;
-    color: #442727;
+    color: var(--brown);
     font-size: 32px;
     font-weight: 400;
-    border: 2px solid #442727;
+    border: 2px solid var(--brown);
     border-radius: 0 10px 10px 0;
-    background-color: #FBFFE2;
+    background-color: var(--yellow);
     padding: 0 2rem;
     transition: 0.5s;
     box-sizing: border-box;
-    box-shadow: inset 0px 0px 3px #442727;
+    box-shadow: inset 0px 0px 3px var(--brown);
 }
 
 .list-btn-list:hover {
-    background-color: white;
+    background-color: var(--white);
     transition: 0.5s;
 }
 
@@ -75,7 +75,7 @@
     bottom: 7rem;
     margin: 0 0 2rem 2rem;
     flex-direction: column;
-    background-color: #B6EAFA;
+    background-color: var(--blue);
     border-radius: 10px;
     text-align: center;
     border: none;
@@ -89,7 +89,7 @@
 
 .ingredient-list-btn {
     border: none;
-    color: #442727;
+    color: var(--brown);
     background-color: transparent;
     width: 100%;
     height: 2rem;
@@ -104,7 +104,7 @@
 
 #open-arrow {
     transform: rotate(180deg);
-    fill: #442727;
+    fill: var(--brown);
 }
 
 .ingredient-list {
@@ -135,10 +135,10 @@
 .measurement-toggle {
     cursor: pointer;
     font-size: 14px;
-    color: #442727;
+    color: var(--brown);
     font-family: "Crimson Text", serif;
     background-color: transparent;
-    border: 1px solid #442727;
+    border: 1px solid var(--brown);
     border-radius: 10px;
     width: 50%;
     align-self: center;
@@ -148,7 +148,7 @@
 }
 
 .measurement-toggle:hover {
-    background-color: white;
+    background-color: var(--yellow);
     transition: 0.5s;
 }
 
@@ -180,8 +180,8 @@
     font-family: "Crimson Text", serif;
     font-style: italic;
     text-decoration: none;
-    background-color: #B6EAFA;
-    color: #442727;
+    background-color: var(--blue);
+    color: var(--brown);
     border: none;
     border-radius: 10px;
     display: flex;
@@ -194,7 +194,7 @@
 
 .next-recipe-btn-list:hover {
     transition: 0.5s;
-    background-color: white;
+    background-color: var(--white);
 }
 
 

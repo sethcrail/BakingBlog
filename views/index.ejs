@@ -1,59 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BakingBlog</title>
+    <head>
+        <title>Bake Me</title>
 
-    <!-- Main Stylesheet -->
-    <link rel="stylesheet" href="/css/styles.css" type="text/css" >
-    <!-- Partials Stylesheets -->
-    <link rel="stylesheet" href="/css/menu-button.css" type="text/css" >
-    <link rel="stylesheet" href="/css/side-nav.css" type="text/css" >
-    <link rel="stylesheet" href="/css/recipe-header.css" type="text/css" >
-    <link rel="stylesheet" href="/css/recipe-story.css" type="text/css" >
-    <link rel="stylesheet" href="/css/recipe-list.css" type="text/css" >
-    <link rel="stylesheet" href="/css/footer.css" type="text/css" >
+        <%- include("partials/boilerplate.ejs") %>
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
-</head>
+        <link rel="stylesheet" href="/css/recipe-header.css" type="text/css" >
+        <link rel="stylesheet" href="/css/recipe-story.css" type="text/css" >
+        <link rel="stylesheet" href="/css/recipe-list.css" type="text/css" >
+    </head>
 
-<body>
-    
-    <%- include("partials/side-nav.ejs") %>
-    <%- include("partials/menu-button.ejs") %>
-
-    <section class="hero">
-        <img class="donut" src="/assets/DONUT.png" alt="DONUT">
+    <body>
         
-        <h1 class="hero-title hero-text">Bake Me Like One of Your Russian Girls</h1>
+        <%- include("partials/side-nav.ejs") %>
+        <%- include("partials/menu-button.ejs") %>
+
+        <section class="hero">
+            <img class="donut" src="/assets/DONUT.png" alt="DONUT">
+            
+            <h1 class="hero-title hero-text">Bake Me Like One of Your Russian Girls</h1>
+            
+            <h3 class="hero-subtitle hero-text">One recipe blog to rule them all.</h3>
+            
+            <svg class="scroll-directive" width="52" height="12" viewBox="0 0 52 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 1L26 11L51 1" stroke="#442727"/>
+            </svg>
+        </section>
         
-        <h3 class="hero-subtitle hero-text">One recipe blog to rule them all.</h3>
-        
-        <svg class="scroll-directive" width="52" height="12" viewBox="0 0 52 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M1 1L26 11L51 1" stroke="#442727"/>
-        </svg>
-    </section>
-    
-    <section class="empty"></section>
+        <section class="empty"></section>
 
-    <section class="recipe">
-        <%- include("partials/recipe-header.ejs") %>
-        <%- include("partials/recipe-story.ejs") %>
-        <%- include("partials/recipe-list.ejs") %>
-    </section>
+        <section class="recipe">
+            <%- include("partials/recipe-header.ejs") %>
+            <%- include("partials/recipe-story.ejs") %>
+            <%- include("partials/recipe-list.ejs") %>
+        </section>
 
-    <%- include("partials/footer.ejs") %>
+        <%- include("partials/footer.ejs") %>
 
-    <!-- Script Files -->
-    <script src="/js/index.js"></script>
-    <script src="/js/menu-button.js"></script>
-    <script src="/js/side-nav.js"></script>
-    <script src="/js/recipe-list.js"></script>
-</body>
+        <!-- Script Files -->
+        <script src="/js/index.js"></script>
+        <script src="/js/side-nav.js"></script>
+        <script src="/js/recipe-list.js"></script>
+    </body>
 
 </html>

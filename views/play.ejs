@@ -1,39 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Play</title>
 
-    <!-- Styles and Scripts -->
-    <link rel="stylesheet" href="/css/styles.css" type="text/css" >
-    <!-- <link rel="stylesheet" href="/css/recipe-header.css" type="text/css" > -->
-    <!-- <link rel="stylesheet" href="/css/recipe-story.css" type="text/css" > -->
-    <!-- <link rel="stylesheet" href="/css/recipe-list.css" type="text/css" > -->
-    <link rel="stylesheet" href="/css/footer.css" type="text/css" >
-    <link rel="stylesheet" href="/css/side-nav.css" type="text/css" >
-    <!-- <link rel="stylesheet" href="/css/hero.css" type="text/css" > -->
-    <link rel="stylesheet" href="/css/menu-button.css" type="text/css" >
+    <%- include("partials/boilerplate.ejs") %>
+
     <link rel="stylesheet" href="/css/play.css" type="text/css" >
-    <!-- <script src="/js/index.js"></script> -->
-    <script src="/js/menu-button.js"></script>
-    <script src="/js/side-nav.js"></script>
-
-
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
-
 </head>
 
 <body>
     <%- include("partials/side-nav.ejs") %>
     <%- include("partials/menu-button.ejs") %>
 
-    <section class="game">
-        <h1 class="play-title">Play</h1>
+    <section class="bgd game">
+        <h1 class="page-title">Play</h1>
         <div class="game-body">
             <div id="game-wrapper">
                 <canvas id="game-canvas"  width="360" height="720">
@@ -75,6 +55,7 @@
     </section>
 
     <%- include("partials/footer.ejs") %>
+
     <script>
         const scoresList = <%- JSON.stringify(scoresList) %>;
         var currentHighScore5;
@@ -86,6 +67,7 @@
         }
 
     </script>
+    <script src="/js/side-nav.js"></script>
     <script src="/js/play.js"></script>
 </body>
 

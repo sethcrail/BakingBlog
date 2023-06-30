@@ -1,5 +1,5 @@
 .side-nav {
-    background-color: #442727;
+    background-color: var(--brown);
     height: 100vh;
     height: 100dvh;
     width: 0;
@@ -14,7 +14,7 @@
 }
 
 .close-nav-btn {
-    stroke: #FBFFE2;
+    stroke: var(--yellow);
     fill: transparent;
     align-self: last baseline;
     background-color: inherit;
@@ -44,7 +44,7 @@
     font-size: clamp(1.75rem, 5vh, 3rem);
     text-decoration: none;
     padding: 0 1rem;
-    color: #FBFFE2; 
+    color: var(--yellow); 
     transition: 1s;
 }
 
@@ -74,7 +74,7 @@
 
 .nav-favicon {
     width: clamp(1.5rem, 6vh, 3rem);
-    fill: #FBFFE2;
+    fill: var(--yellow);
     transition: 0.5s;
 }
 
@@ -102,7 +102,7 @@
 
 @media (hover: hover) {
     .close-nav-btn:hover {
-        stroke: #FFAFAF;
+        stroke: var(--pink);
         transition: 0.2s;
     }
 
@@ -112,7 +112,7 @@
     }
 
     .nav-favicon:hover {
-        fill: #FFAFAF;
+        fill: var(--pink);
         transition: 0.5s;
     }
 }

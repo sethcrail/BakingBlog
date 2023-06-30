@@ -16,37 +16,37 @@
 .story-btn-story {
     cursor: pointer;
     font-family:'Dancing Script', cursive;
-    color: #442727;
+    color: var(--brown);
     font-size: 32px;
-    border: 2px solid #442727;
+    border: 2px solid var(--brown);
     border-radius: 10px 0 0 10px;
-    background-color: #B6EAFA;
+    background-color: var(--blue);
     padding: 0 2rem;
     transition: 0.5s;
     box-sizing: border-box;
-    box-shadow: inset 0px 0px 3px#442727;
+    box-shadow: inset 0px 0px 3px var(--brown);
 }
 
 .story-btn-story:hover {
-    background-color: white;
+    background-color: var(--white);
     transition: 0.5s;
 }
 
 .list-btn-story {
     cursor: pointer;
     font-family:'Dancing Script', cursive;
-    color: #442727;
+    color: var(--brown);
     font-size: 32px;
     font-weight: 400;
-    border: 2px solid #FBFFE2;
+    border: 2px solid var(--yellow);
     border-left: 2px solid transparent;
     border-radius: 0 10px 10px 0;
     text-decoration: none;
-    background-color: #FBFFE2;
+    background-color: var(--yellow);
     padding: 0 2rem;
     transition: 0.5s;
     box-sizing: border-box;
-    box-shadow: 0px 0px 3px#442727;
+    box-shadow: 0px 0px 3px var(--brown);
 }
 
 .list-btn-story:hover {
@@ -56,7 +56,7 @@
 
 .story-text {
     font-family: "Crimson Text", serif;
-    color: #442727;
+    color: var(--brown);
     text-align: left;
     margin: 0 2rem;
     max-width: 1080px;
@@ -64,7 +64,7 @@
 .story-title {
     font-size: 28px;
     font-family: "Crimson Text", serif;
-    color: #442727;
+    color: var(--brown);
     text-align: left;
     margin: 0;
 }
@@ -73,7 +73,7 @@
     font-size: 20px;
     font-family: "Crimson Text", serif;
     font-style: italic;
-    color: #442727;
+    color: var(--brown);
     text-align: left;
     margin: 0;
 }
@@ -84,20 +84,20 @@
 
 .story-quote {
     font-size: 20px;
-    color: #442727;
+    color: var(--brown);
     text-align: center;
     margin: 0.5rem;
 }
 
 .story-citation {
     text-align: center;
-    color: #442727;
+    color: var(--brown);
     margin: 0.5rem;
 }
 
 .story-quote-seperator {
-    border-top: 1px solid #FBFFE2;
-    border-bottom: 1px solid #FBFFE2;
+    border-top: 1px solid var(--yellow);
+    border-bottom: 1px solid var(--yellow);
     max-width: 1080px;
     width: 75%;
 }
@@ -117,8 +117,8 @@
     font-family: "Crimson Text", serif;
     font-style: italic;
     text-decoration: none;
-    background-color: #FBFFE2;
-    color: #442727;
+    background-color: var(--yellow);
+    color: var(--brown);
     border: none;
     border-radius: 10px;
     display: flex;
@@ -132,11 +132,11 @@
 
 .next-recipe-btn-story:hover {
     transition: 0.5s;
-    background-color: white;
+    background-color: var(--white);
 }
 
 .right-arrow-svg {
     height: 30px;
     padding: 0;
-    fill: #442727;
+    fill: var(--brown);
 }
