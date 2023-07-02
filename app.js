@@ -11,6 +11,9 @@ const client = require('twilio')(accountSid, authToken);
 const personalNumber = fs.readFileSync('private/personalNumber.txt', 'utf8');
 const twilioNumber = fs.readFileSync('private/twilioNumber.txt', 'utf8');
 
+const composePassword = fs.readFileSync('private/composePassword.txt', 'utf8');
+
+
 const app = express();
 
 app.set("view engine", "ejs");
@@ -70,21 +73,29 @@ app.get("/", (req, res)=>{
     })();
 });
 
-app.get("/compose", (req, res)=>{
-    (async ()=> {
-        try {
-            const recipeList = await Recipe.find();
-            const recipeTitleList = [];
-            recipeList.forEach(recipe => {
-                recipeTitleList.push(recipe.foodName);
-            });
-            res.render("compose", {
-                recipeTitleList: recipeTitleList
-            });
-        } catch (err) {
-            console.log(err);
-        }
-    })();
+app.get('/login', (req, res) => {
+    res.render('login');
+})
+
+app.get("/compose", (req, res)=> {
+    if (req.isAuthenticated) {
+        (async ()=> {
+            try {
+                const recipeList = await Recipe.find();
+                const recipeTitleList = [];
+                recipeList.forEach(recipe => {
+                    recipeTitleList.push(recipe.foodName);
+                });
+                res.render("compose", {
+                    recipeTitleList: recipeTitleList
+                });
+            } catch (err) {
+                console.log(err);
+            }
+        })();
+    } else {
+        res.redirect('login');
+    }
 });
 
 app.get("/recipes", (req, res)=> {
@@ -197,6 +208,14 @@ app.get("/:postId", (req, res)=> {
 
 
 //POST REQUESTS
+app.post('/login', (req, res)=> {
+    if (composePassword === req.body.password) {
+
+    } else {
+        res.redirect('/login');
+    }
+});
+
 app.post("/compose", (req, res)=> {
 
     const today = new Date();
@@ -249,6 +268,7 @@ app.post("/compose", (req, res)=> {
         })();
     };
 });
+ 
 
 
 app.post('/play', (req, res)=> {

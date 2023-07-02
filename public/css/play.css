@@ -1,9 +1,8 @@
-.game {
-    min-height: calc(100vh - 50px);
+.game-bgd {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: none;
+    padding: 0 2rem;
 }
 
 #game-wrapper {
@@ -17,7 +16,7 @@
 #game-canvas {
     /* height: 720px;
     width: 360px; */
-    background-image: "/assets/game/KitchenBackground.png";
+    /* background-image: "/assets/game/KitchenBackground.png"; */
     border: 3px solid var(--brown);
     margin: none;
     padding: none;
