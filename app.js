@@ -1,36 +1,84 @@
+if (process.env.NODE_ENV !== 'production') {
+    require('dotenv').config();
+}
+
+// Dependencies -----------------
 const express = require("express");
 const ejs = require("ejs");
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const fs = require ("fs");
+const bcrypt = require('bcrypt');
+const passport = require('passport');
+const flash = require('express-flash');
+const session = require('express-session');
 
-const accountSid = fs.readFileSync('private/twilioSid.txt', 'utf8');
-const authToken = fs.readFileSync('private/twilioToken.txt', 'utf8');;
+// initializePassport(
+//     passport, 
+//     username => users.find(user => user.username === username),
+//     id => users.find(user => user.id === id)
+// );
+
+
+//CONNECT EXTERNAL API -----------------
+
+    //Twilio
+const { UserInstance } = require("twilio/lib/rest/conversations/v1/user");
+
+const accountSid = process.env.TWILIO_SID;
+const authToken = process.env.TWILIO_AUTH_TOKEN;
 const client = require('twilio')(accountSid, authToken);
 
-const personalNumber = fs.readFileSync('private/personalNumber.txt', 'utf8');
-const twilioNumber = fs.readFileSync('private/twilioNumber.txt', 'utf8');
+const personalNumber = process.env.PERSONAL_PHONE_NUMBER;
+const twilioNumber = process.env.TWILIO_PHONE_NUMBER;
 
-const composePassword = fs.readFileSync('private/composePassword.txt', 'utf8');
+    //MongoDB
+const mongoUsername = process.env.MONGO_USERNAME;
+const mongoPassword = process.env.MONGO_PASSWORD;
+const mongooseAddress = 'mongodb+srv://' + mongoUsername + ":" + mongoPassword + '@cluster0.mgwew9b.mongodb.net/bakingBlogDB';
 
+async function main() {
+    await mongoose.connect(mongooseAddress);
+  }
+  main().catch(err => console.log(err));
 
+//CONFIGURE APP (EXPRESS/SESSION/PASSPORT) -----------------
 const app = express();
 
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: false}));
+app.use(flash());
 
-//Connect to MongoDB
-const username = fs.readFileSync('private/admin.txt', 'utf8');
-const password = fs.readFileSync('private/password.txt', 'utf8');
-const mongooseAddress = 'mongodb+srv://' + username + ":" + password + '@cluster0.mgwew9b.mongodb.net/bakingBlogDB';
+app.use(session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+        maxAge: 1000 * 60 * 60 * 24
+    }
+}));
 
-main().catch(err => console.log(err));
-
-async function main() {
-  await mongoose.connect(mongooseAddress);
+function checkAuthenticated(req, res, next) {
+    if (req.isAuthenticated()) {
+        return next();
+    }
+    res.redirect('/login');
 }
 
+function checkNotAuthenticated(req, res, next) {
+    if (req.isAuthenticated()) {
+        return res.redirect('/compose');
+    }
+    next();
+}
+
+require('./passport-config');
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+    
 //recipe SCHEMA and CONSTRUCTOR
 const recipeSchema = new mongoose.Schema({
     foodName: String,
@@ -56,7 +104,7 @@ const scoreSchema = new mongoose.Schema({
 const Score = mongoose.model('Score', scoreSchema);
 
 
-//GET REQUESTS
+//GET REQUESTS -----------------
 app.get("/", (req, res)=>{
     (async ()=> {
         try {
@@ -73,29 +121,26 @@ app.get("/", (req, res)=>{
     })();
 });
 
-app.get('/login', (req, res) => {
+app.get('/login', checkNotAuthenticated, (req, res) => {
     res.render('login');
-})
+});
 
-app.get("/compose", (req, res)=> {
-    if (req.isAuthenticated) {
-        (async ()=> {
-            try {
-                const recipeList = await Recipe.find();
-                const recipeTitleList = [];
-                recipeList.forEach(recipe => {
-                    recipeTitleList.push(recipe.foodName);
-                });
-                res.render("compose", {
-                    recipeTitleList: recipeTitleList
-                });
-            } catch (err) {
-                console.log(err);
-            }
-        })();
-    } else {
-        res.redirect('login');
-    }
+app.get('/compose', checkAuthenticated, (req, res) => {
+    (async ()=> {
+        try {
+            const recipeList = await Recipe.find();
+            const recipeTitleList = [];
+            recipeList.forEach(recipe => {
+                recipeTitleList.push(recipe.foodName);
+            });
+            res.render("compose", {
+                recipeTitleList: recipeTitleList
+            });
+        } catch (err) {
+            console.log(err);
+        }
+    })();
+
 });
 
 app.get("/recipes", (req, res)=> {
@@ -208,13 +253,11 @@ app.get("/:postId", (req, res)=> {
 
 
 //POST REQUESTS
-app.post('/login', (req, res)=> {
-    if (composePassword === req.body.password) {
-
-    } else {
-        res.redirect('/login');
-    }
-});
+app.post('/login', passport.authenticate('local', {
+    successRedirect: '/compose',
+    failureRedirect: '/login',
+    failureFlash: true
+}));
 
 app.post("/compose", (req, res)=> {
 
