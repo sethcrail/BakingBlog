@@ -74,6 +74,8 @@
 
 .nav-favicon {
     width: clamp(1.5rem, 6vh, 3rem);
+    margin-left: clamp(0.5rem, 2vw, 1rem);
+    margin-right: clamp(0.5rem, 2vw, 1rem);
     fill: var(--yellow);
     transition: 0.5s;
 }

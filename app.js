@@ -12,6 +12,7 @@ const bcrypt = require('bcrypt');
 const passport = require('passport');
 const flash = require('express-flash');
 const session = require('express-session');
+const nodemailer = require('nodemailer');
 
 // initializePassport(
 //     passport, 
@@ -21,16 +22,6 @@ const session = require('express-session');
 
 
 //CONNECT EXTERNAL API -----------------
-
-    //Twilio
-const { UserInstance } = require("twilio/lib/rest/conversations/v1/user");
-
-const accountSid = process.env.TWILIO_SID;
-const authToken = process.env.TWILIO_AUTH_TOKEN;
-const client = require('twilio')(accountSid, authToken);
-
-const personalNumber = process.env.PERSONAL_PHONE_NUMBER;
-const twilioNumber = process.env.TWILIO_PHONE_NUMBER;
 
     //MongoDB
 const mongoUsername = process.env.MONGO_USERNAME;
@@ -351,17 +342,32 @@ app.post('/contact', (req, res) => {
     const email = req.body.email;
     const message = req.body.message;
 
-    client.messages
-        .create({
-            body: firstName + lastName + ' sent you a message: "' + message + '". Reply to their email address: ' + email,
-            to: personalNumber,
-            from: twilioNumber
-        })
-        .then((response) => {
-            console.log(response);
-            res.redirect('/contact');
-        })
-        .catch(error => console.log(error));
+    const mailDetails = {
+        from: process.env.EMAIL_ADDRESS_SENDER,
+        to: process.env.EMAIL_ADDRESS_RECIPIENT,
+        subject: 'New message from Bake Me',
+        text: firstName + ' ' + lastName + ': "' + message + '" Reply at: ' + email
+    }
+
+    const transporter = nodemailer.createTransport({
+        service: 'Gmail',
+        auth: {
+            user: process.env.EMAIL_ADDRESS_SENDER,
+            pass: process.env.APP_PASSWORD
+        }
+    });
+
+    send();
+
+    async function send() {
+        try {
+            const result = await transporter.sendMail(mailDetails);
+            console.log('success!');
+            //successful message window
+        } catch (err) {
+            console.log(err);
+        }
+    }
 });
 
 //Server Start

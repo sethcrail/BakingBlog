@@ -91,6 +91,7 @@ body {
 }
 
 .input {
+    border-radius: 0px;
     border: 1px solid var(--brown);
     box-shadow: inset 0px 0px 1px var(--brown);
     margin: 0 0 2rem 0;

@@ -17,6 +17,11 @@
     max-width: 720px;
 }
 
+#recipe-edit-selector {
+    border-radius: 0px;
+    background-color: white;
+}
+
 .form-seperator {
     border: 1px solid var(--brown);
     width: 90%;
