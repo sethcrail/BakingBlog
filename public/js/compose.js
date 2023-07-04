@@ -12,7 +12,6 @@ function getRecipe(selection) {
         xhr.onload = () => {
             if(xhr.readyState == 4 & xhr.status == 200) {
                 const foundRecipe = xhr.response[0];
-                //use for loop?
                 document.getElementById('food-name').value = foundRecipe.foodName;
                 document.getElementById('title').value = foundRecipe.title;
                 document.getElementById('body').value = foundRecipe.body.join('\r\n\r\n');

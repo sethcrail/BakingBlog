@@ -50,6 +50,31 @@ body {
 }
 
 /* FORM PAGES */
+.large-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: left;
+    background-color: var(--yellow);
+    padding: 2rem 2.5rem;
+    box-shadow: 0px 0px 10px var(--brown);
+    width: 100%;
+    box-sizing: border-box;
+    max-width: 720px;
+}
+
+.small-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: left;
+    background-color: var(--yellow);
+    padding: 2rem 2.5rem;
+    box-shadow: 0px 0px 10px var(--brown);
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 440px;
+}
 
 .form-title {
     font-family: 'Dancing Script', cursive;
@@ -130,6 +155,11 @@ body {
     transition: 0.5s;
 }
 
+.return-home {
+    text-decoration: none;
+    text-align: center;
+}
+
 @media (max-width: 440px) {
 
     .short-input-row {
@@ -165,6 +195,7 @@ body {
     width: 30rem;
     height: auto;
     filter: drop-shadow(10px 10px 30px rgba(0,0,0,0.6));
+    -webkit-filter: drop-shadow(10px 10px 30px rgba(0,0,0,0.6));
     margin-bottom: 1rem;
 }
 
@@ -215,9 +246,27 @@ body {
 
 }
 
+@media (max-width: 720px) {
+
+    .large-form {
+        box-shadow: none;
+        border-top: 2px solid var(--brown);
+        border-bottom: 2px solid var(--brown);
+    }
+}
+
 @media (max-width: 768px) {
     .hero-subtitle {
         margin-bottom: 2rem;
     }
 
+}
+
+@media (max-width: 440px) {
+
+    .small-form {
+        box-shadow: none;
+        border-top: 2px solid var(--brown);
+        border-bottom: 2px solid var(--brown);
+    }
 }

@@ -5,19 +5,6 @@
     flex-grow: 1;
 }
 
-.contact-form {
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    align-items: left;
-    background-color: var(--yellow);
-    padding: 2rem 2.5rem;
-    box-shadow: 0px 0px 10px var(--brown);
-    box-sizing: border-box;
-    width: 100%;
-    max-width: 440px;
-}
-
 #email {
     width: 100%;
     align-self: left;
@@ -26,13 +13,4 @@
 .return-home {
     text-decoration: none;
     text-align: center;
-}
-
-@media (max-width: 440px) {
-
-    .contact-form {
-        box-shadow: none;
-        border-top: 2px solid var(--brown);
-        border-bottom: 2px solid var(--brown);
-    }
 }

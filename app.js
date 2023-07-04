@@ -125,7 +125,8 @@ app.get('/compose', checkAuthenticated, (req, res) => {
                 recipeTitleList.push(recipe.foodName);
             });
             res.render("compose", {
-                recipeTitleList: recipeTitleList
+                recipeTitleList: recipeTitleList,
+                savedMessage: 0
             });
         } catch (err) {
             console.log(err);
@@ -270,9 +271,9 @@ app.post("/compose", (req, res)=> {
         (async ()=> {
             try {
                 await newRecipe.save();
-                console.log("Recipe Saved.");
-                res.redirect("/compose");
+                res.render("compose", {savedMessage: 1});
             } catch (err) {
+                res.render("compose", {savedMessage: 2});
                 console.log(err);
             }
         })();
@@ -292,15 +293,14 @@ app.post("/compose", (req, res)=> {
                     ingredientsListMetric: req.body.ingredientsMetric.split('\r\n\r\n'),
                     directionsList: req.body.directions.split('\r\n\r\n')
                 });
-                res.redirect("/compose");
+                res.render("compose", {savedMessage: 1});
             } catch (err) {
+                res.render("compose", {savedMessage: 2});
                 console.log(err);
             }
         })();
     };
 });
- 
-
 
 app.post('/play', (req, res)=> {
     (async ()=> {
