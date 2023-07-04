@@ -215,9 +215,6 @@ app.get("/play", (req, res) => {
             console.log(err);
         }
     })();
-
-
-
 });
 
 app.get("/about", (req, res) => {
@@ -225,7 +222,7 @@ app.get("/about", (req, res) => {
 });
 
 app.get("/contact", (req, res) => {
-    res.render("contact");
+    res.render("contact", {sentMessage: 0});
 });
 
 
@@ -345,8 +342,8 @@ app.post('/contact', (req, res) => {
     const mailDetails = {
         from: process.env.EMAIL_ADDRESS_SENDER,
         to: process.env.EMAIL_ADDRESS_RECIPIENT,
-        subject: 'New message from Bake Me',
-        text: firstName + ' ' + lastName + ': "' + message + '" Reply at: ' + email
+        subject: 'New message from ' + firstName + ' ' + lastName + ' on Bake Me',
+        text: '"' + message + '" Reply at: ' + email
     }
 
     const transporter = nodemailer.createTransport({
@@ -362,11 +359,11 @@ app.post('/contact', (req, res) => {
     async function send() {
         try {
             const result = await transporter.sendMail(mailDetails);
-            console.log('success!');
-            //successful message window
+            res.render('contact', {sentMessage: 1})
         } catch (err) {
+            res.render('contact', {sentMessage: 2})
             console.log(err);
-        }
+        } 
     }
 });
 

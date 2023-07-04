@@ -23,6 +23,11 @@
     align-self: left;
 }
 
+.return-home {
+    text-decoration: none;
+    text-align: center;
+}
+
 @media (max-width: 440px) {
 
     .contact-form {

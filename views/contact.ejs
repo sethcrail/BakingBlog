@@ -14,7 +14,7 @@
 
     <section class="bgd contact-form-bgd">
         <h1 class="page-title">Contact</h1>
-
+            <% if (sentMessage === 0) { %>
             <form class = "contact-form" action="/contact" method="post">
                 <h3 class="form-title">Have a question?</h3>
                 <div class="short-input-row">
@@ -33,12 +33,22 @@
                 <textarea class="input long-input" name="message" cols="30" rows="10" required></textarea>
                 <button class="submit-btn" type="submit">Send</button>
             </form>
+            <% } else if (sentMessage === 1) { %>
+                <div class="contact-form">
+                    <h3 class="form-title">Message sent!</h3>
+                    <a href="/" class="return-home submit-btn">Home</a>
+                </div>
+            <% } else { %>
+                <div class="contact-form">
+                    <h3 class="form-title">Oh no! Sorry, but something went wrong. Try again later.</h3>
+                    <a href="/" class="return-home submit-btn">Home</a>
+                </div>
+            <% } %>
     </section>
 
     <%- include("partials/footer.ejs") %>
 
     <script src="/js/side-nav.js"></script>
-    <script src="/js/contact.js"></script>
 
 </body>
 
