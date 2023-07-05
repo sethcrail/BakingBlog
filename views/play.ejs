@@ -15,23 +15,52 @@
     <section class="bgd game-bgd">
         <h1 class="page-title">Play</h1>
         <div class="game-body">
+
             <div id="game-wrapper">
+                <svg id="windfall" class="start-screen" width="71" height="162" viewBox="0 0 71 162" xmlns="http://www.w3.org/2000/svg">
+                    <line x1="0.5" x2="0.5" y2="135.015"/>
+                    <line x1="35.5" y1="26.9846" x2="35.5" y2="162"/>
+                    <line x1="70.5" x2="70.5" y2="135.015"/>
+                </svg>
+                <svg id="milk" class="start-screen" viewBox="0 0 60 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M39.25 11.0909L48 15.9394V55.6508L29.875 62L13 55.6508V15.9394L22.3333 5.63636V2L39.25 7.45455V11.0909Z" fill="#F8F8F8"/>
+                    <path d="M13 15.9394L29.875 22M13 15.9394L22.3333 5.63636M13 15.9394V55.6508L29.875 62M29.875 22L48 15.9394M29.875 22L39.25 11.0909M29.875 22V62M48 15.9394L39.25 11.0909M48 15.9394V55.6508L29.875 62M39.25 11.0909L22.3333 5.63636M39.25 11.0909V7.45455L22.3333 2V5.63636" stroke="black" stroke-width="2"/>
+                </svg>
+                <svg id="mixing-bowl" class="start-screen" viewBox="0 0 124 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M9.7207 5.55908H114.279" stroke="black" stroke-width="4"/>
+                    <path d="M2.75 2.87H121.25V5.55909H114.279C113.505 22.1418 101.965 55.3073 62.0001 55.3073C22.0354 55.3073 10.4952 22.1418 9.72069 5.55909H2.75011L2.75 2.87Z" fill="#D9D9D9"/>
+                    <path d="M114.279 5.55909H121.25V2.87H2.75L2.75011 5.55909H9.72069M114.279 5.55909C113.505 22.1418 101.965 55.3073 62.0001 55.3073C22.0354 55.3073 10.4952 22.1418 9.72069 5.55909M114.279 5.55909H9.72069" stroke="black" stroke-width="4"/>
+                    <path d="M107.309 10.9373C107.309 14.0745 105.915 21.6936 100.338 27.0718" stroke="black" stroke-width="4"/>
+                    <path d="M77.056 56.201H46.8501V61.5792H77.056V56.201Z" fill="#D9D9D9" stroke="black" stroke-width="4"/>
+                    <path d="M98.0145 29.7609C97.24 31.1055 94.7616 34.3324 91.0439 36.4837" stroke="black" stroke-width="4"/>
+                </svg>
+                
+                <canvas id="game-canvas-bgd" width="360" height="720">
+                </canvas>
                 <canvas id="game-canvas"  width="360" height="720">
                 </canvas>
-                <h3 id="game-over-text"></h3>
-                <h5 id="final-score-text"></h5>
-                <form action="/play" method="post" id="hs-form">
+
+                <h3 id="game-over-text" class="end-screen"></h3>
+                <h5 id="final-score-text" class="end-screen"></h5>
+                <form action="/play" method="post" id="hs-form" class="end-screen">
                     <label id="hs-form-label" for="hs-form-name">Enter Your Name:</label>
                     <br>
                     <input id="hs-form-name" type="text" name="hsName">
                     <button id="hs-form-btn" type="submit">Submit</button>
                     <input type="hidden" id="hs-form-score" name="hsScore">
                 </form>
-                <button id="start-btn" onclick="startGame()">Start</button>
+                <button id="start-btn" class="start-screen" onclick="startGame()">Start</button>
+            </div>
+
+            <div id="small-screen-alert">
+                <h3 id="small-screen-alert-text">Sorry! This game is currently only available on larger, non-touchscreen devices.</h3>
             </div>
             <div class="game-info-container">
                 <h3 class="game-title">Kitchen Catcher</h3>
-                <p class="game-description">Collect as many ingredients as you can, but avoid the dangerous items!</p>
+                <p class="game-description">Catch as many ingredients with your mixing bowl as you can, but avoid the dangerous items!</p>
+                <p class="game-description">When you're ready, press the "Start" button to begin. Move the bowl from side to side with your cursor to collect items as they fall. The longer you play, the more difficult it gets, and only the best will have their scores listed below!</p>
+                <p class="game-description">Programming, artwork, music, and sound effects by Seth Crail.</p>
+
                 <table class="hi-score-table">
                     <thead>
                         <th class="hi-score-title" colspan="2">High Scores</th>

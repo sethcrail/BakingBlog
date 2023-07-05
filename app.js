@@ -14,13 +14,6 @@ const flash = require('express-flash');
 const session = require('express-session');
 const nodemailer = require('nodemailer');
 
-// initializePassport(
-//     passport, 
-//     username => users.find(user => user.username === username),
-//     id => users.find(user => user.id === id)
-// );
-
-
 //CONNECT EXTERNAL API -----------------
 
     //MongoDB
@@ -31,7 +24,7 @@ const mongooseAddress = 'mongodb+srv://' + mongoUsername + ":" + mongoPassword +
 async function main() {
     await mongoose.connect(mongooseAddress);
   }
-  main().catch(err => console.log(err));
+main().catch(err => console.log(err));
 
 //CONFIGURE APP (EXPRESS/SESSION/PASSPORT) -----------------
 const app = express();
@@ -368,7 +361,5 @@ app.post('/contact', (req, res) => {
 });
 
 //Server Start
-app.listen(3000, ()=> {
-    console.log("Server started on port 3000.")
-});
+app.listen(3000);
 

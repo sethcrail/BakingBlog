@@ -1,17 +1,25 @@
 const canvas = document.getElementById('game-canvas');
+const backgroundCanvas = document.getElementById('game-canvas-bgd');
 const canvasRect = document.getElementById('game-wrapper').getBoundingClientRect();
+const ctxBgd = backgroundCanvas.getContext('2d');
 const ctx = canvas.getContext('2d');
 
 canvas.width = canvas.getBoundingClientRect().width;
 canvas.height = canvas.getBoundingClientRect().height;
 
-const startBtn = document.getElementById('start-btn');
-
 canvas.width = 360;
 canvas.height = 720;
+backgroundCanvas.width = canvas.width;
+backgroundCanvas.height = canvas.height;
 
 const canvasCenterX = canvas.width / 2;
 const canvasCenterY = canvas.height / 2;
+
+const startScreenElements = document.querySelectorAll('.start-screen');
+const endScreenElements = document.querySelectorAll('.end-screen');
+const startBtn = document.getElementById('start-btn');
+const gameOverText = document.getElementById('game-over-text');
+const finalScoreText =  document.getElementById('final-score-text');
 
 let score = 0;
 let gameOver = false;
@@ -27,11 +35,11 @@ let tickCounter = 0;
 
 const point = new Audio("/assets/game/audio/point.mp3");
 
-const background = new Image();
-background.src = "/assets/game/KitchenBackground.png";
+const backgroundImg = new Image();
+backgroundImg.src = "/assets/game/KitchenBgd.png";
 
 const bowl = new Image();
-bowl.src = "/assets/game/Bowl.png";
+bowl.src = "/assets/game/Mixing_Bowl.png";
 
 const milk = new Image();
 milk.src = "/assets/game/Milk.png";
@@ -186,10 +194,12 @@ class Food {
 //Game Architecture
 
 function startGame() {
-    startBtn.style.display = "none";
-    document.getElementById('game-over-text').style.display = "none";
-    document.getElementById('final-score-text').style.display = "none";
-    document.getElementById('hs-form').style.display = "none";
+    startScreenElements.forEach(element => {
+        element.style.display = 'none';
+    });
+    endScreenElements.forEach(element => {
+        element.style.display = 'none';
+    });
 
     init();
 
@@ -211,6 +221,9 @@ function init() {
 
     foodArray[2].type = 0;
     foodArray[2].delay = 400;
+
+    ctxBgd.drawImage(backgroundImg, 0, 0, canvas.width, canvas.height);
+
 }
 
 function drawScore() {
@@ -221,7 +234,6 @@ function drawScore() {
 
 function animate() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.drawImage(background, -10, -10, canvas.width + 20, canvas.height + 20);
 
     for (let i = 0; i < foodArray.length; i++) {
         foodArray[i].draw();
@@ -279,12 +291,12 @@ function speedUp() {
 
 function endGame() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctxBgd.clearRect(0, 0, backgroundCanvas.width, backgroundCanvas.height)
 
-    document.getElementById('game-over-text').style.display = "block";
-    document.getElementById('game-over-text').innerHTML = "Game Over!";
-
-    document.getElementById('final-score-text').style.display = "block";
-    document.getElementById('final-score-text').innerHTML = "Final Score: " + score;
+    gameOverText.innerHTML = "Game Over!";
+    gameOverText.style.display = 'block';
+    finalScoreText.innerHTML = "Final Score: " + score;
+    finalScoreText.style.display = 'block';
 
     startBtn.style.display = "block";
     startBtn.style.fontSize = "32px";
