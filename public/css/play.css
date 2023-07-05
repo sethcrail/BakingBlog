@@ -14,6 +14,18 @@
 
 /* GAME RELATED ITEMS */
 
+#kitchen-catcher {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3rem;
+    color: black;
+    position: absolute;
+    left: 50%;
+    top: 3%;
+    width: 100%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
 #game-wrapper {
     margin: none;
     padding: none;
@@ -25,14 +37,14 @@
     stroke: black;
     position: absolute;
     left: 50%;
-    top: 20%;
+    top: 30%;
     transform: translate(-50%, -50%);
 }
 
 #milk {
     position: absolute;
     left: 50%;
-    top: 42%;
+    top: 50%;
     width: 100px;
     transform: translate(-50%, -50%) rotate(45deg);
 }
@@ -40,10 +52,38 @@
 #mixing-bowl {
     position: absolute;
     left: 50%;
-    bottom: 25%;
+    bottom: 20%;
     width: 150px;
     transform: translate(-50%, -50%);
 }
+
+#knife1 {
+    position: absolute;
+    left: 50%;
+    bottom: 23%;
+    width: 150px;
+    transform: translate(-50%, -50%);
+    display: none;
+}
+
+#knife2 {
+    position: absolute;
+    left: 50%;
+    bottom: 23%;
+    width: 150px;
+    transform: translate(-50%, -50%) scaleX(-1);
+    display: none;
+}
+
+#crown {
+    position: absolute;
+    left: 50%;
+    bottom: 38%;
+    width: 150px;
+    transform: translate(-50%, -50%);
+    display: none;
+}
+
 
 #game-canvas-bgd {
     position: absolute;
@@ -53,7 +93,6 @@
 }
 
 #game-canvas {
-    /* border: 3px solid var(--brown); */
     margin: none;
     padding: none;
     left: calc(50% - 180px);
@@ -66,7 +105,6 @@
     bottom: 5%;
     transform: translate(-50%, -50%);
     background-color: var(--pink);
-    /* box-shadow: 4px 4px 10px; */
     font-weight: bold;
     font-family: "Crimson Text", serif;
     font-size: 40px;
@@ -140,7 +178,7 @@
 #hs-form {
     position: absolute;
     left: 50%;
-    top: 50%;
+    top: 65%;
     transform: translate(-50%, -50%);
     display: none;
     text-align: center;

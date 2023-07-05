@@ -37,35 +37,26 @@ const point = new Audio("/assets/game/audio/point.mp3");
 
 const backgroundImg = new Image();
 backgroundImg.src = "/assets/game/KitchenBgd.png";
-
 const bowl = new Image();
 bowl.src = "/assets/game/Mixing_Bowl.png";
-
 const milk = new Image();
 milk.src = "/assets/game/Milk.png";
-
 const butter = new Image();
 butter.src = "/assets/game/Butter.png";
-
 const chocolate = new Image();
 chocolate.src = "/assets/game/Chocolate.png";
-
 const flour = new Image();
 flour.src = "/assets/game/Flour.png";
-
 const egg = new Image();
 egg.src = "/assets/game/Egg.png";
-
 const knife = new Image();
 knife.src = "/assets/game/Knife.png";
-
 const rollingPin = new Image();
-rollingPin.src = "/assets/game/RollingPin.png";
-
+rollingPin.src = "/assets/game/Rolling_Pin.png";
 const measuringCup = new Image();
-measuringCup.src = "/assets/game/MeasuringCup.png";
+measuringCup.src = "/assets/game/Measuring_Cup.png";
 
-ctx.font = "48px Crimson Text";
+ctx.font = "3rem Crimson Text";
 
 const canvasPosition = {
     x: canvasRect.x - window.scrollX,
@@ -279,7 +270,6 @@ function resetVariables() {
 }
 
 function levelUp() {
-    // numberOfFood++;
     foodArray.push(new Food());
 }
 
@@ -287,7 +277,6 @@ function speedUp() {
     foodSpeedScale = foodSpeedScale + 0.04;
     delayValue = delayValue - 50;
 }
-
 
 function endGame() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -298,25 +287,23 @@ function endGame() {
     finalScoreText.innerHTML = "Final Score: " + score;
     finalScoreText.style.display = 'block';
 
-    startBtn.style.display = "block";
     startBtn.style.fontSize = "32px";
-
     startBtn.innerHTML = "Play Again";
+    startBtn.style.display = "block";
 
     if (score > currentHighScore5 || scoresList.length < 5) {
         hiScorePrompt();
-
     } else {
-
+        document.getElementById('knife1').style.display = 'block';
+        document.getElementById('knife2').style.display = 'block';
     }
-
 }
 
 function hiScorePrompt() {
-    document.getElementById('game-over-text').innerHTML = "High Score!";
-    document.getElementById('game-over-text').style.fontSize = "48px"
+    gameOverText.innerHTML = "High Score!";
+    gameOverText.style.fontSize = "48px"
     document.getElementById('hs-form').style.display = "block";
     document.getElementById('hs-form-score').value = score;
-
+    document.getElementById('crown').style.display = 'block';
 
 }
