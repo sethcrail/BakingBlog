@@ -33,7 +33,45 @@ const playerWidth = playerHeight * 2;
 let delayValue = 500;
 let tickCounter = 0;
 
-const point = new Audio("/assets/game/audio/point.mp3");
+var point = new Howl({
+    preload: true,
+    src: ['/assets/game/audio/Point_V1.mp3']
+  });
+
+var gameOverSfx = new Howl({
+    preload: true,
+    src: ['/assets/game/audio/GameOver_V1.mp3']
+})
+
+var victorySfx = new Howl({
+    preload: true,
+    src: ['/assets/game/audio/Victory_V1.mp3']
+})
+
+var music3 = new Howl({
+    preload: true,
+    html5: true,
+    src: ['/assets/game/audio/Music3_V1.mp3'],
+    loop:true,
+})
+
+var music2 = new Howl({
+    preload: true,
+    html5: true,
+    src: ['/assets/game/audio/Music2_V1.mp3'],
+    onend: function() {
+        music3.play();
+    }
+})
+
+var music1 = new Howl({
+    preload: true,
+    html5: true,
+    src: ['/assets/game/audio/Music1_V1.mp3'],
+    onend: function() {
+        music2.play();
+    }
+})
 
 const backgroundImg = new Image();
 backgroundImg.src = "/assets/game/KitchenBgd.png";
@@ -196,6 +234,8 @@ function startGame() {
 
     animate();
 
+    music1.play();
+
 }
 
 function init() {
@@ -291,15 +331,22 @@ function endGame() {
     startBtn.innerHTML = "Play Again";
     startBtn.style.display = "block";
 
+    music1.stop();
+    music2.stop();
+    music3.stop();
+
     if (score > currentHighScore5 || scoresList.length < 5) {
         hiScorePrompt();
     } else {
+        gameOverSfx.play();
         document.getElementById('knife1').style.display = 'block';
         document.getElementById('knife2').style.display = 'block';
     }
 }
 
 function hiScorePrompt() {
+    victorySfx.play();
+
     gameOverText.innerHTML = "High Score!";
     gameOverText.style.fontSize = "48px"
     document.getElementById('hs-form').style.display = "block";

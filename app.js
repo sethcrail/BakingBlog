@@ -13,6 +13,7 @@ const passport = require('passport');
 const flash = require('express-flash');
 const session = require('express-session');
 const nodemailer = require('nodemailer');
+const {Howl, Howler} = require('howler');
 
 //CONNECT EXTERNAL API -----------------
 
