@@ -6,9 +6,6 @@ const ctx = canvas.getContext('2d');
 
 canvas.width = canvas.getBoundingClientRect().width;
 canvas.height = canvas.getBoundingClientRect().height;
-
-canvas.width = 360;
-canvas.height = 720;
 backgroundCanvas.width = canvas.width;
 backgroundCanvas.height = canvas.height;
 
@@ -50,14 +47,12 @@ var victorySfx = new Howl({
 
 var music3 = new Howl({
     preload: true,
-    html5: true,
     src: ['/assets/game/audio/Music3_V1.mp3'],
     loop:true,
 })
 
 var music2 = new Howl({
     preload: true,
-    html5: true,
     src: ['/assets/game/audio/Music2_V1.mp3'],
     onend: function() {
         music3.play();
@@ -66,7 +61,6 @@ var music2 = new Howl({
 
 var music1 = new Howl({
     preload: true,
-    html5: true,
     src: ['/assets/game/audio/Music1_V1.mp3'],
     onend: function() {
         music2.play();
@@ -124,7 +118,6 @@ class Player {
         ctx.imageSmoothingEnabled = false;
         ctx.drawImage(bowl, this.x, this.y, this.width, this.height);
         ctx.imageSmoothingEnabled = true;
-
     }
     update() {
         this.x = mouse.x - canvasPosition.x - (this.width / 2);
@@ -132,6 +125,7 @@ class Player {
 }
 
 let player = new Player;
+
 
 class Food {
     constructor() {
@@ -314,8 +308,8 @@ function levelUp() {
 }
 
 function speedUp() {
-    foodSpeedScale = foodSpeedScale + 0.04;
-    delayValue = delayValue - 50;
+    foodSpeedScale += 1;
+    delayValue -= 50;
 }
 
 function endGame() {
