@@ -286,7 +286,10 @@ function animate() {
     tickCounter++;
     
     if (!gameOver) {
-        requestAnimationFrame(animate);
+        setTimeout(() => {
+            requestAnimationFrame(animate);
+        }, 1000 / 90);
+
     } else {
         endGame();
     }
